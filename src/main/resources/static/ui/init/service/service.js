@@ -1107,6 +1107,18 @@ app.service('ReportModelProvider', ['$uibModal', function ($uibModal) {
         });
     };
 
+    this.openReportAccountStatementModel = function () {
+        return $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: "/ui/partials/report/account/accountStatement.html",
+            controller: "accountStatementCtrl",
+            backdrop: 'static',
+            keyboard: false
+        });
+    };
+
     this.openReportAccountDebtByBranchModel = function () {
         return $uibModal.open({
             animation: true,

@@ -199,6 +199,7 @@ gulp.task('scripts', function () {
         './partials/report/account/js/accountByMaster.js',
         './partials/report/account/js/accountByMasterCategory.js',
         './partials/report/account/js/printContract.js',
+        './partials/report/account/js/accountStatement.js',
 
         './partials/report/account/js/accountDebtByBranch.js',
         './partials/report/account/js/accountDebtByMaster.js',
