@@ -39,7 +39,7 @@
 						<font fontName="PT Bold Heading" size="10" isBold="false" isUnderline="false"/>
 						<paragraph lineSpacing="Single" lineSpacingSize="1.0" spacingBefore="0" spacingAfter="0"/>
 					</textElement>
-					<text><![CDATA[المعهد الأهلي العالي للتدريب
+					<text><![CDATA[معهد المورد الوافي للتدريب
 تحت إشراف المؤسسة العامة للتدريب التقني والمهني]]></text>
 				</staticText>
 				<textField>
@@ -174,7 +174,7 @@
 							</textElement>
 							<textFieldExpression><![CDATA[$P{HIJRI_DATE}.booleanValue() ? 
 DateConverter.getHijriStringFromDateRTL($P{ACCOUNT}.getCourse().getEndDate()) : 
-DateConverter.getDateInFormat($P{ACCOUNT}.getCourse().getEndDate()) ]]></textFieldExpression>
+DateConverter.getDateInFormat($P{ACCOUNT}.getCourse().getEndDate())]]></textFieldExpression>
 						</textField>
 						<staticText>
 							<reportElement mode="Transparent" x="100" y="0" width="95" height="18" forecolor="#754C29" backcolor="#754C29" uuid="cb709161-36b1-472b-8903-34344261585e">
