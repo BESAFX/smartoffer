@@ -231,6 +231,7 @@
                             <td class="fit">
                                 <span ng-class="{'no-print': dateType==='G'}" ng-show="dateType==='H'">{{payment.date | kdate: 'yyyy-mm-dd' : 'ar' : 'ummalqura'}}</span>
                                 <span ng-class="{'no-print': dateType==='H'}" ng-show="dateType==='G'">{{payment.date | date: 'yyyy-MM-dd'}}</span>
+                                <span>{{payment.date | date: 'hh:mm a'}}</span>
                             </td>
                             <td>{{payment.paymentMethodInArabic}}</td>
                             <td>{{payment.amountNumber}}</td>
