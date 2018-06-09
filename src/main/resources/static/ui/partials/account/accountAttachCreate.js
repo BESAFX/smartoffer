@@ -2,6 +2,7 @@ app.controller('accountAttachCreateCtrl', [
     'BranchService',
     'AccountService',
     'AccountAttachService',
+    'ModalProvider',
     '$rootScope',
     '$scope',
     '$timeout',
@@ -12,6 +13,7 @@ app.controller('accountAttachCreateCtrl', [
         BranchService,
         AccountService,
         AccountAttachService,
+        ModalProvider,
         $rootScope,
         $scope,
         $timeout,
@@ -105,7 +107,7 @@ app.controller('accountAttachCreateCtrl', [
             });
         };
         
-        $scope.uploadFiles = function () {
+        $scope.selectFiles = function () {
             document.getElementById('uploader').click();
         };
 
@@ -132,6 +134,7 @@ app.controller('accountAttachCreateCtrl', [
                 var file = new File([blob], Math.floor((Math.random() * 50000) + 1) + '.jpg');
                 $scope.files.push(file);
             }
+            $scope.uploadFiles();
         }
 
         function dataURItoBlob(dataURI) {
@@ -154,14 +157,16 @@ app.controller('accountAttachCreateCtrl', [
             return new Blob([ia], {type:mimeString});
         }
         //////////////////////////Scan Manager///////////////////////////////////
-        
-        $scope.$watch('files', function (newVal, oldVal) {
+
+        $scope.uploadFiles = function () {
             if ($scope.files.length > 0) {
-                AccountAttachService.upload($scope.buffer.account, newVal).then(function (data) {
+                AccountAttachService.upload($scope.buffer.account, $scope.files).then(function (data) {
                     return Array.prototype.push.apply($scope.buffer.account.accountAttaches, data);
                 });
+            }else{
+                ModalProvider.openConfirmModel('العقود', 'attach_file', 'فضلاً اختر على الأقل ملف واحد للتحميل');
             }
-        });
+        };
 
         $scope.cancel = function () {
             $uibModalInstance.dismiss('cancel');

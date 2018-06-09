@@ -100,7 +100,9 @@
 
             <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-                <input id="uploader" style="display: none" type="file" onchange="angular.element(this).scope().files=this.files;" multiple/>
+                <input id="uploader" style="display: none" type="file"
+                       onchange="angular.element(this).scope().files=this.files;angular.element(this).scope().uploadFiles()"
+                       multiple/>
 
                 <div class="form-group row">
                     <button uib-tooltip="تحديث"
@@ -113,7 +115,7 @@
                     <button uib-tooltip="رفع ملفات"
                             tooltip-append-to-body="true"
                             type="button"
-                            ng-click="uploadFiles()"
+                            ng-click="selectFiles()"
                             class="mdl-button mdl-js-button mdl-js-ripple-effect col-xs-1 col-sm-1 col-md-1 col-lg-1">
                         <img class="material-icons mdl-list__item-icon" ng-src="/ui/img/{{iconSet}}/upload.{{iconSetType}}" width="24" height="24">
                     </button>
