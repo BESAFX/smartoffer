@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contract" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" isSummaryWithPageHeaderAndFooter="true" uuid="d667083a-5ee3-46f8-b604-36494df2d410">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<import value="com.besafx.app.util.DateConverter"/>
+	<parameter name="TITLE" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="LOGO" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="ACCOUNT" class="com.besafx.app.entity.Account"/>
+	<parameter name="HIJRI_DATE" class="java.lang.Boolean" isForPrompting="false"/>
+	<pageHeader>
+		<band height="80">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<frame>
+				<reportElement x="0" y="0" width="575" height="70" uuid="f8905662-eeb9-439c-bfd7-ff33632b194b"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<staticText>
+					<reportElement stretchType="RelativeToTallestObject" x="430" y="0" width="145" height="70" uuid="49b37b51-313b-4555-9704-55f7b95ea89e"/>
+					<box padding="0">
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#754C29"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#754C29"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#754C29"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#754C29"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None">
+						<font fontName="PT Bold Heading" size="10" isBold="false" isUnderline="false"/>
+						<paragraph lineSpacing="Single" lineSpacingSize="1.0" spacingBefore="0" spacingAfter="0"/>
+					</textElement>
+					<text><![CDATA[معهد المورد الوافي
+تحت إشراف وزارة التربية والتعليم]]></text>
+				</staticText>
+				<textField>
+					<reportElement stretchType="RelativeToTallestObject" x="227" y="0" width="120" height="70" uuid="672ead15-a800-407d-b940-5df83c87b480"/>
+					<box padding="0">
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#754C29"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#754C29"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#754C29"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#754C29"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None">
+						<font fontName="PT Bold Heading" size="10" isBold="false" isUnderline="false"/>
+						<paragraph lineSpacing="Single" lineSpacingSize="1.0" spacingBefore="0" spacingAfter="0"/>
+					</textElement>
+					<textFieldExpression><![CDATA["عقد دورات اللغة الإنجليزية"]]></textFieldExpression>
+				</textField>
+				<image scaleImage="FillFrame" hAlign="Center" vAlign="Top">
+					<reportElement x="0" y="0" width="195" height="70" uuid="11092c3b-0850-4125-8ead-9774a4736853"/>
+					<imageExpression><![CDATA["C:/Users/Development/Desktop/شعار-المورد-الوافي-لغة.png"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="648">
+			<frame>
+				<reportElement x="0" y="0" width="575" height="70" uuid="7d86612c-9bbd-4f7a-8c47-c6eb9566a03f"/>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="0" y="0" width="575" height="70" backcolor="#754C29" uuid="84e4c7bf-8ce9-49ad-aff6-d42f8346e528">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Top" markup="styled">
+						<font fontName="Arial" size="8" isBold="false"/>
+						<paragraph lineSpacing="Double" lineSpacingSize="2.0" firstLineIndent="10" leftIndent="5" rightIndent="5" spacingBefore="5" spacingAfter="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA["انه فى يوم " + "<style isBold=\"true\" isUnderline=\"true\">"  +"                                                        " + "</style>" +  " الموافق " + "<style isBold=\"true\" isUnderline=\"true\">"  +"                                                       "  + "</style>" +  "، " +
+"تم تحرير هذا العقد بين كل من :" +"\n" + 
+"(1) المؤسسة: " + "<style isBold=\"true\" isUnderline=\"true\">" +  "معهد المورد الوافي" + "</style>" +  " ممثلاً الطرف الأول " + "\n" + 
+"(2) المتدربة: " +"<style isBold=\"true\" isUnderline=\"true\">"  +  "                                                       " + "</style>"  +" ممثلة الطرف الثاني ، وبياناتها كالتالي : " + "\n" + 
+"رقم المتدربة: " + "<style backcolor=\"#DBDBDB\">" +  "                                                       " +   "</style>" +   " " +  "رقم الهوية/الإقامة: " + "<style backcolor=\"#DBDBDB\">" +   "                                                       " +  "</style>"  +   " " + "رقم الجوال: " + "<style backcolor=\"#DBDBDB\">"  +  "                                                       " +  "</style>"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="0" y="144" width="575" height="444" uuid="3bf11937-ee57-4f04-8393-4394e291ca75"/>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="575" height="20" forecolor="#FFFFFF" backcolor="#754C29" uuid="d1c8064f-2d70-40c6-9a25-8a44919d526c"/>
+					<box>
+						<topPen lineWidth="1.0" lineColor="#754C29"/>
+						<leftPen lineWidth="1.0" lineColor="#754C29"/>
+						<bottomPen lineWidth="1.0" lineColor="#754C29"/>
+						<rightPen lineWidth="1.0" lineColor="#754C29"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="PT Bold Heading" size="8" isBold="false"/>
+					</textElement>
+					<text><![CDATA[تعليمات وشروط العقد]]></text>
+				</staticText>
+				<frame>
+					<reportElement x="0" y="20" width="575" height="424" uuid="6fbbc3a8-2442-45f1-ad97-be3f16d5ff53">
+						<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					</reportElement>
+					<box>
+						<pen lineColor="#754C29"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+					</box>
+					<textField>
+						<reportElement x="0" y="0" width="575" height="33" uuid="42ca635c-f7f1-4425-a38e-f4cbad3524f0">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="3">
+							<pen lineColor="#754C29"/>
+							<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Justified" verticalAlignment="Middle" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "يلتزم الطرف الثاني فى حال رغبته بالفصل من الدورة أن يفوم بإشعار الطرف الأول خطياً وإلا يعتبر هذا العقد ملزماً له بسداد كافة رسوم الدورة فوراً عند المطالبة حتى لو لم يداوم ويحق للطرف الأول مطالبته عبر القنوات الرسمية بذلك." + "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="33" width="575" height="23" uuid="4e3c1243-bdc7-4d3b-93dd-93a751230a09">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "الاختبار النهائي لدورة " +  "<style isBold=\"true\">" + "اللغة التأسيسية" +  "</style>" + " رسمي ومعتمد ومصدق من وزارة التربية والتعليم" + "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="56" width="575" height="23" uuid="fe1c4102-28b0-4fe6-b39e-3fbf198d5ad4">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "يجب على الدارسة الحضور يوميا بموعد المحاضرات المخصصة لها سواء نظرية أو عملية وعدم التغيب بدون عذر وفي حالة رغبة الدارسة بالغياب أو التأجيل عليها تعبئة النموذج المعد لذلك بقسم التسجيل. "+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="79" width="575" height="23" uuid="6a366f62-9458-41e1-bfa0-7aaefd6cbbca">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "في حالة تغيب الطالبة 6 أيام فى الشهر متواصلة او متفرقة يكون الشهر لاغياً ويتم تأخيرها شهر على حسابها الخاص. "+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="102" width="575" height="23" uuid="33ccd567-9bbe-48b0-99ff-d2f055b3fae9">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "لن يتم رصد درجة لأي دارسة إلا بعد إجتيازها الاختبار المقرر لهذة المادة. "+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="125" width="575" height="23" uuid="237c0fe8-abd3-414b-b001-6f9550390965">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "في حال تأخر الدارسة عن الاختبار أو غيابها بدون عذر رسمي يتم تغريمها مبلغ 1000 ريال وإعادة الاختبار. "+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="148" width="575" height="23" uuid="4364c18e-247b-4715-834e-70e030fe8f3a">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "يجب على الدارسة الحضور يوميا حسب عدد الساعات المقررة  من الأحد إلى الخميس ويوم السبت يعتبر مفتوح لتعويض المحاضرات النظرية التي تغيبت عنها الطالبة إن وجدت. "+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="171" width="575" height="23" uuid="e6a170d6-145b-4d18-9151-829947d1727a">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "يجب على كل متدربة قراءة لوحة الإعلانات عند مدخل المعهد لمعرفة مواعيد المحاضرات ومتابعة الموقع الإلكتروني للمعهد لمشاهدة كل جديد يطرأ على الدورات. "+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="194" width="575" height="23" uuid="c8da9d40-2adc-4ad4-a835-9ccbfa9086c2">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "يجب على كل متدربة دفع الرسوم الشهرية فى بداية كل شهر ميلادي ولا يحق للمتدربة تأخير اي قسط إلا بأخذ الموافقة من المدير المالي. "+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="217" width="575" height="23" uuid="2bc47575-66da-4ddf-a14d-b0fdb5779a0b">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "يمنع استخدام الجوال منعا باتا فى القاعات العملية والنظرية للمعهد. "+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="240" width="575" height="23" uuid="fc788b7d-b8d6-48be-bf5f-bc6b636b943d">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "الحفاظ على أجهزة وأثاث المعهد. "+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="263" width="575" height="23" uuid="fa3ea8bf-6366-4b52-b41f-cb6028e015b7">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "الرسوم المدفوعة للمعهد لا تسترد مهما كان السبب أو العذر ولا يحق للمتدربة المطالبة بها بعد ذلك فى حالة عدم دوامها. "+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="286" width="575" height="23" uuid="1c054625-d295-4a0a-bb7c-9238443c4453">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "في حالة وجود إي ملاحظة يتم الاتصال مباشرة على جوال رقم : 0551511566 هاتف : 0146621118 "+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="309" width="575" height="23" uuid="15c697a4-3288-4828-a76b-e1a0d00b34ee">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "على كل متدربة الإلتزام بالزي الرسمي والذي يتناسب مع الشريعة الإسلامية، ويمنع منعا باتاً من الحضور بالملابس الرياضية أو ثوب النوم أو أي ملابس اخرى."+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="332" width="575" height="23" uuid="3bc2646a-a07a-49f6-9eac-abc8ae0ae04f">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "فى حال شعور المتدربة بعدم استفادتها من الدورة لإي سبب عليها مراجعة الإدارة أو تعبئة النموذج المعد لهذا الغرض وتسليمه بظرف مغلق بقسم القبول والتسجيل أو قسم المحاسبة خلال شهر من بداية الدورة."+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="355" width="575" height="23" uuid="dabe3347-0a9f-4514-9645-84fe55e465cd">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "يجب على كل متدربة إبراز البطاقة عند دخول المعهد كما يجب إحضار الكتب والدفاتر الخاصة بالدورة فى المحاضرات سواء كانت نظرية أو عملية."+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="378" width="575" height="23" uuid="59b08099-dcbc-4d43-bb77-4fe07dc6aff9">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "يجب على كل متدربة التقيد بالخطة الدراسية المدرجة والإطلاع عليها والمتابعة مع المدربة."+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="401" width="575" height="23" uuid="d8af220d-c51e-4ced-8577-e07f0b46bdd9">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "يجب على كل متدربة فى نهاية كل شهر إحضار الجدول الخاص بالشهر الجديد من قسم القبول والتسجيل أو من خلال الموقع الإلكتروني للمعهد."+ "</li>"]]></textFieldExpression>
+					</textField>
+				</frame>
+			</frame>
+			<frame>
+				<reportElement x="0" y="70" width="575" height="74" uuid="708d66ee-5bcd-4514-91fd-29da7c57af13"/>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="575" height="20" forecolor="#FFFFFF" backcolor="#754C29" uuid="4e0b387b-7bc0-4444-b135-2a2185b0da32"/>
+					<box>
+						<topPen lineWidth="1.0" lineColor="#754C29"/>
+						<leftPen lineWidth="1.0" lineColor="#754C29"/>
+						<bottomPen lineWidth="1.0" lineColor="#754C29"/>
+						<rightPen lineWidth="1.0" lineColor="#754C29"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="PT Bold Heading" size="8" isBold="false"/>
+					</textElement>
+					<text><![CDATA[بيانات الدورة]]></text>
+				</staticText>
+				<frame>
+					<reportElement x="0" y="20" width="575" height="54" uuid="5e2fec11-f0a6-4ed0-8130-631e106fe3ae">
+						<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+						<property name="ShowOutOfBoundContent" value="true"/>
+					</reportElement>
+					<frame>
+						<reportElement x="0" y="0" width="575" height="18" uuid="8f68fee5-ab60-435f-859f-428351a14998">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+						</reportElement>
+						<textField isBlankWhenNull="true">
+							<reportElement mode="Transparent" x="0" y="0" width="480" height="18" forecolor="#754C29" backcolor="#754C29" uuid="dd47387e-da50-4c73-9e51-fcd7aa618cca">
+								<property name="com.jaspersoft.layout.grid.x" value="1"/>
+								<property name="com.jaspersoft.layout.grid.y" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="5"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="Arial" size="8" isBold="false"/>
+								<paragraph rightIndent="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA["لغة تأسيسية"]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement mode="Transparent" x="480" y="0" width="95" height="18" forecolor="#754C29" backcolor="#754C29" uuid="a9ce38ba-ddb0-4db3-8f1b-a0ecca8bc0e6">
+								<property name="com.jaspersoft.layout.grid.x" value="6"/>
+								<property name="com.jaspersoft.layout.grid.y" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="PT Bold Heading" size="8" isBold="false"/>
+							</textElement>
+							<text><![CDATA[مسمى الدورة]]></text>
+						</staticText>
+					</frame>
+					<frame>
+						<reportElement x="0" y="18" width="575" height="18" uuid="74e362cb-4b7b-42e6-b90e-0963ab265251">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+						</reportElement>
+						<textField isBlankWhenNull="true">
+							<reportElement mode="Transparent" x="0" y="0" width="100" height="18" forecolor="#754C29" backcolor="#754C29" uuid="2a2d8183-d5be-4967-a952-ec0474f2aedc">
+								<property name="com.jaspersoft.layout.grid.x" value="1"/>
+								<property name="com.jaspersoft.layout.grid.y" value="2"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="Arial" size="8" isBold="false"/>
+								<paragraph rightIndent="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA[""]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement mode="Transparent" x="100" y="0" width="95" height="18" forecolor="#754C29" backcolor="#754C29" uuid="ae32fe28-c40c-42fa-89c8-74cbd12af162">
+								<property name="com.jaspersoft.layout.grid.x" value="2"/>
+								<property name="com.jaspersoft.layout.grid.y" value="2"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="PT Bold Heading" size="8" isBold="false"/>
+							</textElement>
+							<text><![CDATA[تاريخ نهاية الدورة]]></text>
+						</staticText>
+						<textField isBlankWhenNull="true">
+							<reportElement mode="Transparent" x="195" y="0" width="95" height="18" forecolor="#754C29" backcolor="#754C29" uuid="1951d2b5-465e-4e5c-920c-4fc6e61c8188">
+								<property name="com.jaspersoft.layout.grid.x" value="3"/>
+								<property name="com.jaspersoft.layout.grid.y" value="2"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="Arial" size="8" isBold="false"/>
+								<paragraph rightIndent="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA[""]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement mode="Transparent" x="290" y="0" width="95" height="18" forecolor="#754C29" backcolor="#754C29" uuid="b2785f46-23f6-48a0-8ab5-58a723a55f8f">
+								<property name="com.jaspersoft.layout.grid.x" value="4"/>
+								<property name="com.jaspersoft.layout.grid.y" value="2"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="PT Bold Heading" size="8" isBold="false"/>
+							</textElement>
+							<text><![CDATA[تاريخ بداية الدورة]]></text>
+						</staticText>
+						<textField>
+							<reportElement mode="Transparent" x="385" y="0" width="95" height="18" forecolor="#754C29" backcolor="#754C29" uuid="9da61267-2cfb-48fd-8e14-1bef0de3e360">
+								<property name="com.jaspersoft.layout.grid.x" value="5"/>
+								<property name="com.jaspersoft.layout.grid.y" value="2"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="Arial" size="8" isBold="false"/>
+								<paragraph rightIndent="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA["3 شهور"]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement mode="Transparent" x="480" y="0" width="95" height="18" forecolor="#754C29" backcolor="#754C29" uuid="e1a8f823-87c9-48ce-bce6-3562ee500d91">
+								<property name="com.jaspersoft.layout.grid.x" value="6"/>
+								<property name="com.jaspersoft.layout.grid.y" value="2"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="PT Bold Heading" size="8" isBold="false"/>
+							</textElement>
+							<text><![CDATA[مدة الدورة]]></text>
+						</staticText>
+					</frame>
+					<frame>
+						<reportElement x="0" y="36" width="575" height="18" uuid="a4111f3c-6a3e-4619-a452-c8c2dea9d4a7">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+						</reportElement>
+						<textField>
+							<reportElement mode="Transparent" x="0" y="0" width="100" height="18" forecolor="#754C29" backcolor="#754C29" uuid="2bb2840a-275a-4d6a-a2c1-cb698ca919de">
+								<property name="com.jaspersoft.layout.grid.x" value="5"/>
+								<property name="com.jaspersoft.layout.grid.y" value="2"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="Arial" size="8" isBold="false"/>
+								<paragraph rightIndent="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA["1000 ريال سعودي"]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement mode="Transparent" x="100" y="0" width="95" height="18" forecolor="#754C29" backcolor="#754C29" uuid="268122f7-ab71-4274-8980-e6bede2837c8">
+								<property name="com.jaspersoft.layout.grid.x" value="2"/>
+								<property name="com.jaspersoft.layout.grid.y" value="3"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="PT Bold Heading" size="8" isBold="false"/>
+							</textElement>
+							<text><![CDATA[بمقدار القسط]]></text>
+						</staticText>
+						<textField>
+							<reportElement mode="Transparent" x="195" y="0" width="95" height="18" forecolor="#754C29" backcolor="#754C29" uuid="78b5f6db-0e0d-4ff0-a7ed-b345834ae2a5">
+								<property name="com.jaspersoft.layout.grid.x" value="5"/>
+								<property name="com.jaspersoft.layout.grid.y" value="2"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="Arial" size="8" isBold="false"/>
+								<paragraph rightIndent="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA["3000 ريال سعودي"]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement mode="Transparent" x="290" y="0" width="95" height="18" forecolor="#754C29" backcolor="#754C29" uuid="b6fa62ac-3758-4299-8ba2-be4aa8dcfe10">
+								<property name="com.jaspersoft.layout.grid.x" value="4"/>
+								<property name="com.jaspersoft.layout.grid.y" value="3"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="PT Bold Heading" size="8" isBold="false"/>
+							</textElement>
+							<text><![CDATA[قيمة الدورة أقساط]]></text>
+						</staticText>
+						<textField>
+							<reportElement mode="Transparent" x="385" y="0" width="95" height="18" forecolor="#754C29" backcolor="#754C29" uuid="cf14eedc-4b2f-47a1-a7a7-458612e76882">
+								<property name="com.jaspersoft.layout.grid.x" value="5"/>
+								<property name="com.jaspersoft.layout.grid.y" value="2"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="Arial" size="8" isBold="false"/>
+								<paragraph rightIndent="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA["---"]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement mode="Transparent" x="480" y="0" width="95" height="18" forecolor="#754C29" backcolor="#754C29" uuid="2eea73a1-36f6-4046-82b4-2c195d920101">
+								<property name="com.jaspersoft.layout.grid.x" value="6"/>
+								<property name="com.jaspersoft.layout.grid.y" value="3"/>
+								<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+								<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+								<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="PT Bold Heading" size="8" isBold="false"/>
+							</textElement>
+							<text><![CDATA[قيمة الدورة نقداَ]]></text>
+						</staticText>
+					</frame>
+				</frame>
+			</frame>
+			<frame>
+				<reportElement x="1" y="588" width="575" height="20" uuid="25fd4afe-aeed-46bb-87ef-62a33c480356"/>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="575" height="20" forecolor="#FFFFFF" backcolor="#43A047" uuid="a21839f6-9957-4143-a3bb-92e7fe5fc4ff"/>
+					<box>
+						<topPen lineWidth="1.0" lineColor="#43A047"/>
+						<leftPen lineWidth="1.0" lineColor="#43A047"/>
+						<bottomPen lineWidth="1.0" lineColor="#43A047"/>
+						<rightPen lineWidth="1.0" lineColor="#43A047"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="PT Bold Heading" size="8" isBold="false"/>
+					</textElement>
+					<text><![CDATA[تم قراءة كافة البنود أعلاه وفهمها وعلى هذا أوقع]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="1" y="610" width="575" height="38" uuid="d3fe159c-147f-467e-b3e4-1f0733c4a139">
+					<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+					<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+					<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+					<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+					<property name="com.jaspersoft.layout.grid.x" value="6"/>
+					<property name="com.jaspersoft.layout.grid.y" value="1"/>
+					<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+				</reportElement>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="0" width="146" height="38" forecolor="#B71C1C" backcolor="#754C29" uuid="07bff03b-d24b-4cfc-a8ba-28a6980ceb60">
+						<property name="com.jaspersoft.layout.grid.x" value="6"/>
+						<property name="com.jaspersoft.layout.grid.y" value="1"/>
+						<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+						<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+						<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+						<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+						<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="PT Bold Heading" size="8" isBold="false"/>
+					</textElement>
+					<text><![CDATA[توقيع الإدارة]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="146" y="0" width="143" height="38" forecolor="#B71C1C" backcolor="#754C29" uuid="6be45514-8517-466c-b033-3d85305d066e">
+						<property name="com.jaspersoft.layout.grid.x" value="6"/>
+						<property name="com.jaspersoft.layout.grid.y" value="1"/>
+						<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+						<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+						<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+						<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+						<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="PT Bold Heading" size="8" isBold="false"/>
+					</textElement>
+					<text><![CDATA[الختم]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="289" y="0" width="143" height="38" forecolor="#B71C1C" backcolor="#754C29" uuid="291920c6-e87e-4ddf-98ec-db83c75d2124">
+						<property name="com.jaspersoft.layout.grid.x" value="6"/>
+						<property name="com.jaspersoft.layout.grid.y" value="1"/>
+						<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+						<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+						<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+						<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+						<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="PT Bold Heading" size="8" isBold="false"/>
+					</textElement>
+					<text><![CDATA[توقيع ولي الأمر]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="432" y="0" width="143" height="38" forecolor="#B71C1C" backcolor="#754C29" uuid="b8b128a4-ac59-402d-83d5-abff080d6d39">
+						<property name="com.jaspersoft.layout.grid.x" value="6"/>
+						<property name="com.jaspersoft.layout.grid.y" value="1"/>
+						<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+						<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+						<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+						<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+						<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="PT Bold Heading" size="8" isBold="false"/>
+					</textElement>
+					<text><![CDATA[توقيع المتدربة]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>
