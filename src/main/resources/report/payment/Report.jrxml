@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Payment" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" uuid="d667083a-5ee3-46f8-b604-36494df2d410">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -601,10 +601,10 @@
 										</staticText>
 									</jr:cell>
 								</jr:groupHeader>
-								<jr:detailCell style="Table_TD" height="20">
+								<jr:detailCell style="Table_TD" height="34">
 									<property name="com.jaspersoft.studio.unit.height" value="px"/>
 									<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-										<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="79" height="20" uuid="0638e834-5917-45fa-90f6-34c9fe37ab7e">
+										<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="79" height="34" uuid="0638e834-5917-45fa-90f6-34c9fe37ab7e">
 											<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 										</reportElement>
 										<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -627,9 +627,9 @@
 										</staticText>
 									</jr:cell>
 								</jr:groupHeader>
-								<jr:detailCell style="Table_TD" height="20">
+								<jr:detailCell style="Table_TD" height="34">
 									<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-										<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="80" height="20" uuid="149771dc-2e3e-463e-b12e-7f97701dcc63">
+										<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="80" height="34" uuid="149771dc-2e3e-463e-b12e-7f97701dcc63">
 											<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 										</reportElement>
 										<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -653,9 +653,9 @@ $F{lastPerson}.getContact().getForthName()]]></textFieldExpression>
 										</staticText>
 									</jr:cell>
 								</jr:groupHeader>
-								<jr:detailCell style="Table_TD" height="20">
+								<jr:detailCell style="Table_TD" height="34">
 									<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-										<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="79" height="20" uuid="9b52f88b-0492-4a6e-883a-f14ae9221ccd">
+										<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="79" height="34" uuid="9b52f88b-0492-4a6e-883a-f14ae9221ccd">
 											<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 										</reportElement>
 										<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -678,16 +678,30 @@ $F{lastPerson}.getContact().getForthName()]]></textFieldExpression>
 										</staticText>
 									</jr:cell>
 								</jr:groupHeader>
-								<jr:detailCell style="Table_TD" height="20">
-									<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-										<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="79" height="20" uuid="121420e9-ee7f-44f6-bc16-08c3201e050d">
-											<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								<jr:detailCell style="Table_TD" height="34">
+									<frame>
+										<reportElement x="0" y="0" width="79" height="34" uuid="69d25e1b-7466-41a4-8a2c-78ec86ea31cf">
+											<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 										</reportElement>
-										<textElement textAlignment="Center" verticalAlignment="Middle">
-											<font fontName="Arial" size="9"/>
-										</textElement>
-										<textFieldExpression><![CDATA[DateConverter.getHijriStringFromDateRTL($F{date})]]></textFieldExpression>
-									</textField>
+										<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+											<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="79" height="17" uuid="121420e9-ee7f-44f6-bc16-08c3201e050d">
+												<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+											</reportElement>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font fontName="Arial" size="9"/>
+											</textElement>
+											<textFieldExpression><![CDATA[DateConverter.getHijriStringFromDateRTL($F{date})]]></textFieldExpression>
+										</textField>
+										<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+											<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="17" width="79" height="17" uuid="658eb4e7-7558-4a2c-ac0f-bd923caf881c">
+												<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+											</reportElement>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font fontName="Arial" size="9"/>
+											</textElement>
+											<textFieldExpression><![CDATA[DateConverter.getDateInFormat($F{date})]]></textFieldExpression>
+										</textField>
+									</frame>
 								</jr:detailCell>
 							</jr:column>
 							<jr:column width="80" uuid="8718be43-3946-4b62-9234-9432c29e6fb8">
@@ -703,9 +717,9 @@ $F{lastPerson}.getContact().getForthName()]]></textFieldExpression>
 										</staticText>
 									</jr:cell>
 								</jr:groupHeader>
-								<jr:detailCell style="Table_TD" height="20">
+								<jr:detailCell style="Table_TD" height="34">
 									<textField isStretchWithOverflow="true" pattern="#,##0.## SAR;#,##0.##-  SAR" isBlankWhenNull="true">
-										<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="80" height="20" uuid="0233d396-c661-4324-a027-853bbfd6337d">
+										<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="80" height="34" uuid="0233d396-c661-4324-a027-853bbfd6337d">
 											<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 										</reportElement>
 										<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -728,9 +742,9 @@ $F{lastPerson}.getContact().getForthName()]]></textFieldExpression>
 										</staticText>
 									</jr:cell>
 								</jr:groupHeader>
-								<jr:detailCell style="Table_TD" height="20">
+								<jr:detailCell style="Table_TD" height="34">
 									<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-										<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="79" height="20" uuid="16e27b43-ff69-44b5-87a6-fe8975e37aa1">
+										<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="79" height="34" uuid="16e27b43-ff69-44b5-87a6-fe8975e37aa1">
 											<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 										</reportElement>
 										<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -753,9 +767,9 @@ $F{lastPerson}.getContact().getForthName()]]></textFieldExpression>
 										</staticText>
 									</jr:cell>
 								</jr:groupHeader>
-								<jr:detailCell style="Table_TD" height="20">
+								<jr:detailCell style="Table_TD" height="34">
 									<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-										<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="79" height="20" uuid="644e2264-6e8a-4944-a22d-78ff14593942">
+										<reportElement style="BODER_FIELD" stretchType="RelativeToTallestObject" x="0" y="0" width="79" height="34" uuid="644e2264-6e8a-4944-a22d-78ff14593942">
 											<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 										</reportElement>
 										<textElement textAlignment="Center" verticalAlignment="Middle">
