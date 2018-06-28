@@ -143,73 +143,72 @@
                                    ng-model="paramOffer.codeTo">
                         </div>
 
-                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-init="buffer={};buffer.calendar='H'">
-                            <label for="calendar" class="control-label">نوع التقويم</label>
-                            <select id="calendar"
-                                    style="height: 40px"
-                                    class="form-control text-right"
-                                    ng-model="buffer.calendar"
-                                    required="required"
-                                    disable-validation-message="">
-                                <option value="H">تقويم هجري</option>
-                                <option value="G">تقويم ميلادي</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="buffer.calendar==='H'">
+                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <label for="dateFrom" class="control-label">تاريخ العرض من</label>
-                            <div dir="ltr" class="input-group">
-                                <input dir="rtl"
-                                       id="dateFrom"
-                                       type="text"
-                                       class="form-control text-right is-calendarPicker"
-                                       ng-model="paramOffer.dateFrom"
-                                       calendarType="ummalqura"
-                                       language="en"
-                                       dateFormat="yyyy/mm/dd"
-                                       showOnFocus="false"
-                                       readonly="readonly"
-                                       kdatepicker>
+                            <div dir="ltr" class="input-group" id="dateFrom" ng-init="calendar1='G'">
+                                    <span class="input-group-addon">
+                                        <a href="" ng-click="calendar1==='G'?calendar1='H':calendar1='G'">
+                                            <span ng-show="calendar1==='G'">ميلادي</span>
+                                            <span ng-show="calendar1==='H'">هجري</span>
+                                        </a>
+                                    </span>
+                                <div style="position: relative">
+                                    <input style="position: absolute" ng-show="calendar1==='H'"
+                                           type="text"
+                                           class="form-control is-calendarPicker animated-div"
+                                           ng-model="paramOffer.dateFrom"
+                                           calendarType="ummalqura"
+                                           language="ar"
+                                           dateFormat="yyyy/mm/dd"
+                                           showOnFocus="true"
+                                           pickerClass="myPicker"
+                                           kdatepicker/>
+                                    <input style="position: absolute" ng-show="calendar1==='G'"
+                                           type="text"
+                                           class="form-control is-calendarPicker animated-div"
+                                           ng-model="paramOffer.dateFrom"
+                                           calendarType="gregorian"
+                                           language="ar-EG"
+                                           dateFormat="yyyy/mm/dd"
+                                           showOnFocus="true"
+                                           pickerClass="myPicker"
+                                           kdatepicker/>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="buffer.calendar==='H'">
+                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <label for="dateTo" class="control-label">تاريخ العرض إلى</label>
-                            <div dir="ltr" class="input-group">
-                                <input dir="rtl"
-                                       id="dateTo"
-                                       type="text"
-                                       class="form-control text-right is-calendarPicker"
-                                       ng-model="paramOffer.dateTo"
-                                       calendarType="ummalqura"
-                                       language="en"
-                                       dateFormat="yyyy/mm/dd"
-                                       showOnFocus="false"
-                                       readonly="readonly"
-                                       kdatepicker>
+                            <div dir="ltr" class="input-group" id="dateTo" ng-init="calendar2='G'">
+                                    <span class="input-group-addon">
+                                        <a href="" ng-click="calendar2==='G'?calendar2='H':calendar2='G'">
+                                            <span ng-show="calendar2==='G'">ميلادي</span>
+                                            <span ng-show="calendar2==='H'">هجري</span>
+                                        </a>
+                                    </span>
+                                <div style="position: relative">
+                                    <input style="position: absolute" ng-show="calendar2==='H'"
+                                           type="text"
+                                           class="form-control is-calendarPicker animated-div"
+                                           ng-model="paramOffer.dateTo"
+                                           calendarType="ummalqura"
+                                           language="ar"
+                                           dateFormat="yyyy/mm/dd"
+                                           showOnFocus="true"
+                                           pickerClass="myPicker"
+                                           kdatepicker/>
+                                    <input style="position: absolute" ng-show="calendar2==='G'"
+                                           type="text"
+                                           class="form-control is-calendarPicker animated-div"
+                                           ng-model="paramOffer.dateTo"
+                                           calendarType="gregorian"
+                                           language="ar-EG"
+                                           dateFormat="yyyy/mm/dd"
+                                           showOnFocus="true"
+                                           pickerClass="myPicker"
+                                           kdatepicker/>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="buffer.calendar==='G'">
-                            <label for="G-dateFrom" class="control-label">تاريخ العرض من</label>
-                            <input id="G-dateFrom"
-                                   class="form-control"
-                                   dir="ltr"
-                                   type="text"
-                                   name="input"
-                                   ng-model="paramOffer.dateFrom"
-                                   datetime="yyyy-MM-dd"/>
-                        </div>
-
-                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="buffer.calendar==='G'">
-                            <label for="G-dateTo" class="control-label">تاريخ العرض إلى</label>
-                            <input id="G-dateTo"
-                                   class="form-control"
-                                   dir="ltr"
-                                   type="text"
-                                   name="input"
-                                   ng-model="paramOffer.dateTo"
-                                   datetime="yyyy-MM-dd"/>
                         </div>
 
                         <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">

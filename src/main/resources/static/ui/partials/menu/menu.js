@@ -1911,7 +1911,7 @@ app.controller("menuCtrl", [
             });
         };
         $scope.deletePayment = function (payment) {
-            ModalProvider.openConfirmModel("حذف البيانات", "هل تود حذف السند فعلاً؟").result.then(function (value) {
+            ModalProvider.openConfirmModel("سندات القبض", 'trash', "هل تود حذف سند القبض فعلاً؟").result.then(function (value) {
                 if (value) {
                     PaymentService.remove(payment.id).then(function () {
                         var index = $scope.payments.indexOf(payment);

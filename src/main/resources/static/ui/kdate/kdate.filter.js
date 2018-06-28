@@ -52,7 +52,7 @@
                 return calendar.formatDate(dateformat, dateResult);
 
             } else {
-                return $filter('date')(input, dateformat);
+                return $filter('date')(input, 'yyyy-MM-dd');
             }
         }
     }

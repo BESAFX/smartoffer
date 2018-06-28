@@ -35,8 +35,16 @@ body {
     background: #f5f5f5 url('/ui/img/bg.png') left top repeat !important;
 }
 
-.xlg .modal-dialog {
-    width: 80% !important;
+@media (min-width: 992px){
+    .xlg .modal-dialog {
+        width: 80%;
+    }
+}
+
+@media (min-width: 768px){
+    .xlg .modal-dialog {
+        width: 80%;
+    }
 }
 
 /*.chosen-container-multi .chosen-choices,*/
@@ -78,11 +86,20 @@ input {
 }
 
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-    background-color: white !important;
+    background-color: white;
 }
 
 .form-control[disabled], .form-control[readonly] {
     color: black !important;
+}
+
+.panel {
+    font-size: 12px !important;
+    margin-bottom: 8px !important;
+}
+
+.panel * {
+    /*font-size: 12px !important;*/
 }
 
 .panel-green {
@@ -159,6 +176,10 @@ input {
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2) !important;
 }
 
+.panel-body {
+    padding: 5px !important;
+}
+
 .panel .panel-body.profile {
     border-radius: 0px !important;
 }
@@ -204,13 +225,14 @@ input[type=checkbox] {
 }
 
 .mdl-layout__title, .mdl-layout-title {
-    font-family: 'Droid Arabic Naskh', 'Roboto Condensed', sans-serif!important;
-    color: white!important;
+    font-family: 'Droid Arabic Naskh', 'Roboto Condensed', sans-serif !important;
+    color: white !important;
 }
 
 .mdl-menu {
     width: 310px !important;
-    overflow: auto!important;
+    overflow: auto !important;
+    padding: 0px 0px !important;
 }
 
 .mdl-list__item--two-line .mdl-list__item-primary-content {
@@ -335,6 +357,8 @@ ul.breadcrumb {
     list-style: none !important;
     background-color: #eee !important;
     font-size: 17px !important;
+    margin-top: 5px!important;
+    margin-bottom: 5px!important;
 }
 
 ul.breadcrumb li {
@@ -362,14 +386,14 @@ select {
 }
 
 .drop-menu {
-    direction: rtl!important;
+    direction: rtl !important;
     padding: 0 16px !important;
     margin: 0;
     text-align: right !important;
     cursor: pointer !important;
-    line-height: 48px!important;
+    line-height: 48px !important;
     height: 48px;
-    font-size: 14px!important;
+    font-size: 14px !important;
 }
 
 .drop-menu img {
@@ -530,19 +554,20 @@ WebKit inertia scrolling is being added here for any present/future devices that
 .table > tbody > tr > td, .table > tfoot > tr > td {
     font-size: 15px !important;
     font-weight: 800 !important;
+    text-align: right !important;
 }
 
-.mdl-tabs__tab{
+.mdl-tabs__tab {
     text-decoration: none !important;
     font-weight: bold !important;
     font-size: 12px !important;
 }
 
 .mdl-tabs__tab.is-active {
-    background-color: #eeeeee!important;
-    color: #0275d8!important;
+    background-color: #eeeeee !important;
+    color: #0275d8 !important;
     font-size: 14px !important;
-    font-weight: 900!important;
+    font-weight: 900 !important;
 }
 
 .mdl-tabs__tab-bar {
@@ -562,10 +587,7 @@ WebKit inertia scrolling is being added here for any present/future devices that
 .input-group-btn:last-child > .btn,
 .input-group-btn:last-child > .btn-group > .btn,
 .input-group-btn:last-child > .dropdown-toggle {
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-    border-top-left-radius: 3px !important;
-    border-bottom-left-radius: 3px !important;
+    border-radius: 3px 0 0 3px;
 }
 
 .text-overflow-dots {
@@ -597,12 +619,17 @@ WebKit inertia scrolling is being added here for any present/future devices that
     right: 0 !important;
     left: auto !important;
 }
+
 /** CheckBox **/
 
 .mdl-tabs__panel {
-    padding: 10px !important;
+    padding-top: 20px !important;
     height: 400px !important;
-    overflow: auto!important;
+    overflow: auto !important;
+}
+
+.mdl-tabs__panel_free {
+    height: unset !important;
 }
 
 /**********************************
@@ -613,7 +640,7 @@ WebKit inertia scrolling is being added here for any present/future devices that
 .ui-select-bootstrap > .ui-select-match > .btn {
     text-align: right !important;
     padding: 10px !important;
-    height: auto!important;
+    height: auto !important;
 }
 
 .ui-select-bootstrap .ui-select-toggle > .caret {
@@ -707,14 +734,14 @@ WebKit inertia scrolling is being added here for any present/future devices that
     font-size: 13px !important;
 }
 
-.ui-select-multiple.ui-select-bootstrap .ui-select-match-item{
-    width: 45%!important;
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item {
+    width: 45% !important;
 }
 
 .ui-select-multiple.ui-select-bootstrap .ui-select-match-item,
-.ui-select-bootstrap .ui-select-choices-row>span{
+.ui-select-bootstrap .ui-select-choices-row > span {
     font-size: 16px !important;
-    height: unset!important;
+    height: unset !important;
 }
 
 .bold-text {
@@ -737,22 +764,22 @@ WebKit inertia scrolling is being added here for any present/future devices that
     width: auto !important;
 }
 
-.question-font{
+.question-font {
     font-family: "AdvertisingExtraBold" !important;
-    font-weight: unset!important;
+    font-weight: unset !important;
 }
 
-.answer-font{
+.answer-font {
     font-family: "Arial Black" !important;
-    font-weight: unset!important;
+    font-weight: unset !important;
 }
 
-.force-dir-ltr{
+.force-dir-ltr {
     direction: ltr !important;
     text-align: left !important;
 }
 
-.force-dir-rtl{
+.force-dir-rtl {
     direction: rtl !important;
     text-align: right !important;
 }
@@ -762,92 +789,252 @@ WebKit inertia scrolling is being added here for any present/future devices that
         display: none;
     }
 }
+
 @media print {
+
     html * {
         direction: rtl;
-        font-family: 'Arial'!important;
-        font-size: 12px!important;
-        font-weight: normal!important;
+        font-family: 'Droid Arabic Naskh', 'Roboto Condensed', sans-serif;
     }
+
+    html p {
+        padding: 5px!important;
+    }
+
+    html,
+    body{
+        background: white!important;
+    }
+
     .table > thead > tr > th, .table > tbody > tr > th,
     .table > tfoot > tr > th, .table > thead > tr > td,
-    .table > tbody > tr > td, .table > tfoot > tr > td {
-        text-align: right!important;
-        font-family: 'Arial'!important;
-        font-size: 12px!important;
-        font-weight: normal!important;
+    .table > tbody > tr > td, .table > tfoot > tr > td  {
+        text-align: right !important;
+        font-family: 'Droid Arabic Naskh', 'Roboto Condensed', sans-serif;
+        font-size: 12px !important;
+        font-weight: normal !important;
     }
-    #printDiv1, #printDiv2{
-        position:fixed!important;
-        left:0!important;
-        right:0!important;
-        top:0!important;
-        margin:auto!important;
-        max-width:100%!important;
-        max-height:100%!important;
-        overflow:auto!important;
+
+    #printDiv1, #printDiv2 {
+        position: fixed !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        margin: auto !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        overflow: auto !important;
     }
+
     .no-print, .no-print * {
-        visibility:hidden!important;
+        visibility: hidden !important;
+    }
+
+    .text-left {
+        text-align: left!important;
+    }
+
+    .text-right {
+        text-align: right!important;
+    }
+
+    .text-center {
+        text-align: center!important;
+    }
+
+    .text-justify {
+        text-align: justify!important;
+    }
+
+    .template-box{
+        background-color: white;
+        border: thin solid;
+        border-radius: 3px;
+        padding: 5px;
+    }
+
+    .template-border{
+        background-color: white;
+        border: thin solid;
+        border-radius: 5px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .template-body{
+        padding: 20px;
+        margin: auto;
+    }
+
+    .template-body > p{
+        line-height: 1.6!important;
+    }
+
+    .row{
+        margin-left: 5px!important;
+        margin-right: 5px!important;
+    }
+
+    hr{
+        margin: 2px!important;
     }
 }
 
-.control-label{
-    font-size: 14px!important;
-    font-weight: 500!important;
+/***********************************************************/
+.template-box{
+    background-color: white;
+    border: thin solid;
+    border-radius: 3px;
+    padding: 5px;
 }
 
-.mdl-button{
-    text-transform: unset!important;
+.template-border{
+    background-color: white;
+    border: thin solid;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
 }
 
-.alert-danger{
-    background-color: #e74c3c!important;
-    font-size: 16px!important;
-    border-radius: 5px!important;
+.template-body{
+    padding: 20px;
+    margin: auto;
 }
 
-.modal-body{
-    max-height: 400px!important;
-    overflow: auto!important;
+.template-body > p{
+    line-height: 1.6!important;
 }
 
-.modal-body-free{
-    max-height: unset!important;
-    overflow: unset!important;
+/***********************************************************/
+.control-label {
+    font-size: 14px !important;
+    font-weight: 500 !important;
 }
 
-.mdl-list__item-secondary-action{
-    float: left!important;
+.mdl-button {
+    text-transform: unset !important;
 }
 
-.error-msg{
-    display: none!important;
+.modal-body {
+    max-height: 400px !important;
+    overflow: auto !important;
 }
 
-.mdl-layout__drawer{
+.modal-body-free {
+    max-height: unset !important;
+    overflow: unset !important;
+}
+
+.mdl-list__item-secondary-action {
+    float: left !important;
+}
+
+.error-msg {
+    display: none !important;
+}
+
+.mdl-layout__drawer {
+    width: 300px !important;
+    transform: translateX(-300px) !important;
+}
+
+.mdl-layout__drawer.is-visible {
+    transform: translateX(0) !important;
+}
+
+.mdl-list__item--two-line {
+    height: auto !important;
+}
+
+.mdl-list__item--two-line .mdl-list__item-primary-content {
+    height: 100% !important;
+    margin-top: 20px !important;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active > span {
+    background-color: #ccc !important;
+}
+
+.mdl-list__item-avatar, .mdl-list__item-avatar.material-icons {
+    height: 60px !important;
+    width: 60px !important;
+}
+
+.mdl-mini-footer {
+    padding: 16px 16px !important;
+}
+
+.row [class^='col-xs-'],
+.row [class^='col-sm-'],
+.row [class^='col-md-'],
+.row [class^='col-lg-'] {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+.table-responsive {
+    overflow-x: unset !important;
+}
+
+input.success {
+    background-color: #5cb85c !important;;
+}
+
+input.danger {
+    background-color: #d9534f !important;;
+}
+
+p {
+    margin: unset !important;
+    padding: 10px !important;
+}
+
+.mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-sub-title,
+.mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-sub-title span {
+    width: unset !important;
+}
+
+.mdl-list__item-sub-title {
+    margin-right: 76px !important;
+    white-space: normal !important;
+}
+
+.mdl-button[disabled][disabled], .mdl-button.mdl-button--disabled.mdl-button--disabled{
+    cursor: not-allowed!important;
+    opacity: 0.5!important;
+}
+
+.long-td{
+    width: 10%;
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.long-td:hover{
+    z-index: 1;
+    background-color: #FFFFCC;
+    color: black!important;
+    max-width: unset;
+    overflow: unset;
+    text-overflow: unset;
+    white-space: unset;
+}
+
+.myPicker{
     width: 300px!important;
-    transform: translateX(-300px)!important;
 }
 
-.mdl-layout__drawer.is-visible{
-    transform: translateX(0)!important;
+.myPicker .calendars-month{
+    width: 100%!important;
 }
 
-.mdl-list__item--two-line{
-    height: auto!important;
+.input-group-addon  a{
+    text-decoration: none!important;
+    color: white!important;
 }
 
-.mdl-list__item--two-line .mdl-list__item-primary-content{
-    height: 90px!important;
-    margin-top: 20px!important;
-}
-
-.ui-select-bootstrap .ui-select-choices-row.active>span{
-    background-color: #ccc!important;
-}
-
-.mdl-list__item-avatar, .mdl-list__item-avatar.material-icons{
-    height: 60px!important;
-    width: 60px!important;
+.has-success .input-group-addon a{
+    color: #3c763d!important;
 }

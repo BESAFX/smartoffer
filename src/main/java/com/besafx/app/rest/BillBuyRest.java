@@ -58,7 +58,11 @@ public class BillBuyRest {
         billBuy.setLastUpdate(new Date());
         billBuy.setLastPerson(person);
         billBuy = billBuyService.save(billBuy);
-        notificationService.notifyAll(Notification.builder().message("تم فاتورة جديدة بنجاح").type("success").build());
+        StringBuilder builder = new StringBuilder();
+        builder.append("تم إنشاء فاتورة شراء بقيمة: ");
+        builder.append(billBuy.getAmount() + " ريال سعودي ");
+        builder.append("، برقم : " + billBuy.getCode());
+        notificationService.notifyAll(Notification.builder().message(builder.toString()).type("success").build());
         return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), FILTER_TABLE), billBuy);
     }
 
@@ -72,7 +76,11 @@ public class BillBuyRest {
             billBuy.setLastUpdate(new Date());
             billBuy.setLastPerson(person);
             billBuy = billBuyService.save(billBuy);
-            notificationService.notifyAll(Notification.builder().message("تم تعديل بيانات الفاتورة بنجاح").type("warning").build());
+            StringBuilder builder = new StringBuilder();
+            builder.append("تم تعديل فاتورة شراء بقيمة: ");
+            builder.append(billBuy.getAmount() + " ريال سعودي ");
+            builder.append("، برقم : " + billBuy.getCode());
+            notificationService.notifyAll(Notification.builder().message(builder.toString()).type("warning").build());
             return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), FILTER_TABLE), billBuy);
         } else {
             return null;
@@ -82,11 +90,15 @@ public class BillBuyRest {
     @RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     @PreAuthorize("hasRole('ROLE_BILL_BUY_DELETE')")
-    public void delete(@PathVariable Long id, Principal principal) {
-        BillBuy object = billBuyService.findOne(id);
-        if (object != null) {
+    public void delete(@PathVariable Long id) {
+        BillBuy billBuy = billBuyService.findOne(id);
+        if (billBuy != null) {
             billBuyService.delete(id);
-            notificationService.notifyAll(Notification.builder().message("تم حذف الفاتورة بنجاح").type("error").build());
+            StringBuilder builder = new StringBuilder();
+            builder.append("تم حذف فاتورة شراء بقيمة: ");
+            builder.append(billBuy.getAmount() + " ريال سعودي ");
+            builder.append("، برقم : " + billBuy.getCode());
+            notificationService.notifyAll(Notification.builder().message(builder.toString()).type("error").build());
         }
     }
 

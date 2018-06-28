@@ -10,22 +10,25 @@ app.controller('billBuyCreateUpdateCtrl', ['BillBuyTypeService', 'BillBuyService
         $timeout(function () {
             BillBuyTypeService.findAll().then(function (data) {
                 $scope.billBuyTypes = data;
+                $scope.billBuy.billBuyType = data[0];
             });
             BranchService.fetchBranchCombo().then(function (data) {
                 $scope.branches = data;
+                $scope.billBuy.branch = data[0];
             });
-        }, 2000);
+        }, 800);
 
         $scope.submit = function () {
             switch ($scope.action) {
                 case 'create' :
                     BillBuyService.create($scope.billBuy).then(function (data) {
-                        $uibModalInstance.close(data);
+                        $scope.billBuy = {};
+                        $scope.form.$setPristine();
                     });
                     break;
                 case 'update' :
                     BillBuyService.update($scope.billBuy).then(function (data) {
-                        $scope.billBuy = data;
+                        $uibModalInstance.close(data);
                     });
                     break;
             }

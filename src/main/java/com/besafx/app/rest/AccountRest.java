@@ -33,7 +33,7 @@ public class AccountRest {
             "**," +
             "lastPerson[id,contact[id,shortName]]," +
             "course[id,code,master[id,code,name,branch[id,code,name]]]," +
-            "student[id,contact[id,firstName,secondName,thirdName,forthName,fullName,mobile,identityNumber]]," +
+            "student[id,contact[**]]," +
             "payments[**,lastPerson[id,contact[id,shortName]],-account]," +
             "accountAttaches[**,attach[**,person[id,contact[id,shortName]]],-account]," +
             "accountConditions[**,-account,person[id,contact[id,shortName]]]," +

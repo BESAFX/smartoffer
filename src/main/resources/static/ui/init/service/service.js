@@ -417,7 +417,6 @@ app.service('ModalProvider', ['$uibModal', '$log', function ($uibModal, $log) {
             controller: 'accountUpdatePriceCtrl',
             backdrop: 'static',
             keyboard: false,
-            size: 'lg',
             resolve: {
                 account: ['AccountService', function (AccountService) {
                     return AccountService.findOne(account.id).then(function (data) {

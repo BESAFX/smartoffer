@@ -1,20 +1,21 @@
 /* http://mkhodary.com
- kdatepicker.js
- Written by Mohamed Elkhodary - December 2015.
- Available under the MIT license.
- Please attribute the author if you use it. */
+   kdatepicker.js
+   Written by Mohamed Elkhodary - December 2015.
+   Available under the MIT license. 
+   Please attribute the author if you use it. */
 
 (function () {
     'use strict';
 
-    angular
-        .module('kdate')
-        .directive('kdatepicker', ['$filter', '$log', function ($filter, $log) {
+    angular.module('kdate')
+
+        .directive('kdatepicker', ['$filter', function ($filter) {
             return {
                 restrict: 'A',
                 scope: '=ngModel',
                 require: 'ngModel',
                 link: function (scope, element, attrs, ngModel) {
+
                     $(function () {
                         // Read attribute values.
                         var calendarType = attrs.calendartype;
@@ -22,6 +23,7 @@
                         var language = attrs.language;
                         var showOnFocus = attrs.showonfocus === 'true';
                         var btnText = attrs.btntriggertext ? attrs.btntriggertext : '*';
+                        var pickerClass = attrs.pickerclass;
                         var dateResult = null;
 
                         ngModel.$formatters.push(function (value) {
@@ -44,18 +46,16 @@
 
                         $.calendarsPicker.setDefaults($.calendarsPicker.regionalOptions['']);
 
-                        var showTriggerText = '<span class="input-group-btn"><button class="btn btn-primary" type="button"><i class="fa fa-calendar-o"></i></button></span>';
+                        var showTriggerText = '<button type="button">' + btnText + '</button>';
                         if (showOnFocus == true) {
                             showTriggerText = '';
                         }
-
-                        var cal = $.calendars.instance(calendarType, language);
 
                         // Use jquery to setup the calendar.
                         var calendar = element.calendarsPicker($.extend({
                                 showOnFocus: showOnFocus,
                                 showTrigger: showTriggerText,
-                                // minDate: cal.newDate(),
+                                pickerClass: pickerClass,
                                 calendar: $.calendars.instance(calendarType, language)
                             },
                             $.calendarsPicker.regionalOptions[language], {
@@ -82,7 +82,6 @@
                                             result.setMinutes(date.getMinutes());
                                             result.setSeconds(date.getSeconds());
                                             result.setMilliseconds(date.getMilliseconds());
-
                                         } else {
                                             result = date;
                                         }
@@ -100,6 +99,7 @@
                             // set date result to fill html input.
                             element.val('').calendarsPicker("setDate", dateResult);
                         }
+
                     });
                 }
             }

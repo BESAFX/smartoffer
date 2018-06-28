@@ -62,127 +62,131 @@
                 </ui-select>
             </div>
 
-            <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <label for="code" class="control-label">رقم الدورة</label>
-                <input id="code"
-                       type="text"
-                       required="required"
-                       disable-validation-message=""
-                       class="form-control text-right"
-                       placeholder="رقم الدورة الغير مكرر على مستوى التخصص الواحد"
-                       ng-model="course.code">
+            <div class="form-group row">
+
+                <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <label for="code" class="control-label">رقم الدورة</label>
+                    <div dir="ltr" class="input-group" id="code">
+                        <span class="input-group-addon">غير مكرر</span>
+                        <input required="required"
+                               disable-validation-message=""
+                               type="number"
+                               class="form-control"
+                               ng-model="course.code">
+                    </div>
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <label for="maxStudentCount"> أقصى عدد للطلاب </label>
+                    <div dir="ltr" class="input-group" id="maxStudentCount">
+                        <span class="input-group-addon">طالب</span>
+                        <input required="required"
+                               disable-validation-message=""
+                               type="number"
+                               min="1"
+                               max="100"
+                               class="form-control"
+                               ng-model="course.maxStudentCount">
+                    </div>
+                </div>
+
             </div>
 
-            <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <label for="maxStudentCount"> أقصى عدد للطلاب </label>
-                <div dir="ltr" class="input-group" id="maxStudentCount">
-                    <span class="input-group-addon">طالب</span>
-                    <input required="required"
+            <div class="form-group row">
+
+                <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <label for="companyName" class="control-label">الشركة</label>
+                    <input id="companyName"
+                           type="text"
+                           class="form-control"
+                           required="required"
                            disable-validation-message=""
-                           type="number"
-                           min="1"
-                           max="100"
-                           class="form-control text-right"
-                           ng-model="course.maxStudentCount">
+                           ng-model="course.companyName">
                 </div>
-            </div>
 
-            <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <label for="companyName" class="control-label">الشركة</label>
-                <input id="companyName"
-                       type="text"
-                       class="form-control text-right"
-                       required="required"
-                       disable-validation-message=""
-                       ng-model="course.companyName">
-            </div>
-
-            <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <label for="instructor" class="control-label">المدرب</label>
-                <input id="instructor"
-                       type="text"
-                       class="form-control text-right"
-                       ng-model="course.instructor"
-                       required="required"
-                       disable-validation-message="">
-            </div>
-
-            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-init="buffer={};buffer.hijriDate='true'">
-                <label for="hijriDate" class="control-label">نوع التقويم</label>
-                <select id="hijriDate"
-                        style="height: 40px"
-                        class="form-control text-right"
-                        ng-model="buffer.hijriDate"
-                        required="required"
-                        disable-validation-message="">
-                    <option value="true">تقويم هجري</option>
-                    <option value="false">تقويم ميلادي</option>
-                </select>
-            </div>
-
-            <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-if="buffer.hijriDate==='true'">
-                <label for="startDate" class="control-label">التاريخ من</label>
-                <div dir="ltr" class="input-group">
-                    <input dir="rtl"
-                           id="startDate"
+                <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <label for="instructor" class="control-label">المدرب</label>
+                    <input id="instructor"
                            type="text"
-                           class="form-control text-right is-calendarPicker"
-                           ng-model="course.startDate"
+                           class="form-control"
+                           ng-model="course.instructor"
                            required="required"
-                           calendarType="ummalqura"
-                           language="en"
-                           dateFormat="yyyy/mm/dd"
-                           showOnFocus="false"
-                           readonly="readonly"
-                           kdatepicker
                            disable-validation-message="">
                 </div>
+
             </div>
 
-            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="buffer.hijriDate==='false'">
-                <label for="G-startDate" class="control-label">التاريخ من</label>
-                <input id="G-startDate"
-                       class="form-control"
-                       type="datetime-local"
-                       name="input"
-                       ng-model="course.startDate"
-                       format-date
-                       placeholder="yyyy-MM-dd"
-                       min="2015-01-01"
-                       max="2030-12-31"/>
-            </div>
+           <div class="form-group row">
 
-            <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-if="buffer.hijriDate==='true'">
-                <label for="endDate" class="control-label">التاريخ إلى</label>
-                <div dir="ltr" class="input-group">
-                    <input dir="rtl"
-                           id="endDate"
-                           type="text"
-                           class="form-control text-right is-calendarPicker"
-                           ng-model="course.endDate"
-                           required="required"
-                           calendarType="ummalqura"
-                           language="en"
-                           dateFormat="yyyy/mm/dd"
-                           showOnFocus="false"
-                           readonly="readonly"
-                           kdatepicker
-                           disable-validation-message="">
-                </div>
-            </div>
+               <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                   <label for="startDate" class="control-label">تاريخ الدورة من</label>
+                   <div dir="ltr" class="input-group" id="startDate" ng-init="calendar1='G'">
+                        <span class="input-group-addon">
+                            <a href="" ng-click="calendar1==='G'?calendar1='H':calendar1='G'">
+                                <span ng-show="calendar1==='G'">ميلادي</span>
+                                <span ng-show="calendar1==='H'">هجري</span>
+                            </a>
+                        </span>
+                       <div style="position: relative">
+                           <input style="position: absolute" ng-show="calendar1==='H'"
+                                  type="text"
+                                  class="form-control is-calendarPicker animated-div"
+                                  ng-model="course.startDate"
+                                  calendarType="ummalqura"
+                                  language="ar"
+                                  dateFormat="yyyy/mm/dd"
+                                  showOnFocus="true"
+                                  pickerClass="myPicker"
+                                  kdatepicker/>
+                           <input style="position: absolute" ng-show="calendar1==='G'"
+                                  type="text"
+                                  class="form-control is-calendarPicker animated-div"
+                                  ng-model="course.startDate"
+                                  calendarType="gregorian"
+                                  language="ar-EG"
+                                  dateFormat="yyyy/mm/dd"
+                                  showOnFocus="true"
+                                  pickerClass="myPicker"
+                                  kdatepicker/>
+                       </div>
+                   </div>
+               </div>
 
-            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="buffer.hijriDate==='false'">
-                <label for="G-endDate" class="control-label">التاريخ إلى</label>
-                <input id="G-endDate"
-                       class="form-control"
-                       type="datetime-local"
-                       name="input"
-                       ng-model="course.endDate"
-                       format-date
-                       placeholder="yyyy-MM-dd"
-                       min="2015-01-01"
-                       max="2030-12-31"/>
-            </div>
+               <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                   <label for="endDate" class="control-label">تاريخ الدورة إلى</label>
+                   <div dir="ltr" class="input-group" id="endDate" ng-init="calendar2='G'">
+                        <span class="input-group-addon">
+                            <a href="" ng-click="calendar2==='G'?calendar2='H':calendar2='G'">
+                                <span ng-show="calendar2==='G'">ميلادي</span>
+                                <span ng-show="calendar2==='H'">هجري</span>
+                            </a>
+                        </span>
+                       <div style="position: relative">
+                           <input style="position: absolute" ng-show="calendar2==='H'"
+                                  type="text"
+                                  class="form-control is-calendarPicker animated-div"
+                                  ng-model="course.endDate"
+                                  calendarType="ummalqura"
+                                  language="ar"
+                                  dateFormat="yyyy/mm/dd"
+                                  showOnFocus="true"
+                                  pickerClass="myPicker"
+                                  kdatepicker/>
+                           <input style="position: absolute" ng-show="calendar2==='G'"
+                                  type="text"
+                                  class="form-control is-calendarPicker animated-div"
+                                  ng-model="course.endDate"
+                                  calendarType="gregorian"
+                                  language="ar-EG"
+                                  dateFormat="yyyy/mm/dd"
+                                  showOnFocus="true"
+                                  pickerClass="myPicker"
+                                  kdatepicker/>
+                       </div>
+                   </div>
+               </div>
+
+           </div>
 
         </div>
 

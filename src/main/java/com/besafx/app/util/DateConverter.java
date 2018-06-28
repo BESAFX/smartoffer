@@ -30,7 +30,7 @@ public class DateConverter {
     }
 
     public static String getDateInFormat(Date date) {
-        return new SimpleDateFormat("yyyy-MM-dd").format(date);
+        return new SimpleDateFormat("yyyy/MM/dd").format(date);
     }
 
     public static String getTimeFromDate(Date date) {

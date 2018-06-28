@@ -1,27 +1,28 @@
-.ui-view-container {
+.ui-view {
     position: relative;
+    opacity: 0;
 }
 
 [ui-view].ng-enter, [ui-view].ng-leave {
     position: absolute;
     left: 0;
     right: 0;
-    /*-webkit-transition: all .5s ease-in-out;*/
-    /*-moz-transition: all .5s ease-in-out;*/
-    /*-o-transition: all .5s ease-in-out;*/
-    /*transition: all .5s ease-in-out;*/
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
 }
 
 [ui-view].ng-enter {
-    -webkit-animation: 1s bounceInRight ease-in-out;
-    animation: 1s bounceInRight ease-in-out;
-    /*animation-delay: 0.3s;*/
+    -webkit-animation: 0.5s fadeIn ease-in-out;
+    animation: 0.5s fadeIn ease-in-out;
+    animation-delay: 0.3s;
 }
 
 [ui-view].ng-leave {
     -webkit-animation: 0.3s fadeOut ease-in-out;
     animation: 0.3s fadeOut ease-in-out;
-    /*animation-delay: 0.3s;*/
+    animation-delay: 0.3s;
 }
 
 /**************************************************************
@@ -29,16 +30,16 @@
  * Body Animation                                             *
  *                                                            *
  *************************************************************/
-.template-body.ng-enter {
+.animated-div.ng-enter {
     -webkit-animation: 1s zoomIn ease-in-out;
     animation: 1s zoomIn ease-in-out;
-    /*animation-delay: 0.3s;*/
+    animation-delay: 0.3s;
 }
 
-.template-body.ng-leave {
-    -webkit-animation: 0.3s fadeOut ease-in-out;
-    animation: 0.3s fadeOut ease-in-out;
-    /*animation-delay: 0.3s;*/
+.animated-div.ng-leave {
+    -webkit-animation: 1s fadeOut ease-in-out;
+    animation: 1s fadeOut ease-in-out;
+    animation-delay: 0.3s;
 }
 
 /**************************************************************
@@ -80,13 +81,13 @@
  * General Animation                                          *
  *                                                            *
  *************************************************************/
-/*when hiding the thing */
+/*!*when hiding the thing*!*/
 /*.ng-hide-add {*/
 /*-webkit-animation: 0.5s zoomOut ease;*/
 /*animation: 0.5s zoomOut ease;*/
 /*}*/
 
-/*when showing the thing */
+/*!*when showing the thing*!*/
 /*.ng-hide-remove {*/
 /*-webkit-animation: 0.5s zoomIn ease;*/
 /*animation: 0.5s zoomIn ease;*/
@@ -98,16 +99,17 @@
  *                                                            *
  *************************************************************/
 /* when hiding the thing */
-.filter-div.ng-hide-add {
-    -webkit-animation: 0.5s zoomOut ease;
-    animation: 0.5s zoomOut ease;
+.animated-div.ng-hide-add {
+    -webkit-animation: 0.5s fadeOut ease;
+    animation: 0.5s fadeOut ease;
 }
 
 /* when showing the thing */
-.filter-div.ng-hide-remove {
-    -webkit-animation: 0.5s zoomIn ease;
-    animation: 0.5s zoomIn ease;
+.animated-div.ng-hide-remove {
+    -webkit-animation: 0.5s fadeIn ease;
+    animation: 0.5s fadeIn ease;
 }
+
 /**************************************************************
  *                                                            *
  * canvas Animation                                           *

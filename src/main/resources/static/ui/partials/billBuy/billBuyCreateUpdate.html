@@ -42,83 +42,6 @@
                 </ui-select>
             </div>
 
-            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-init="buffer.hijriDate='true'">
-                <label for="hijriDate" class="control-label">نوع التقويم</label>
-                <select id="hijriDate"
-                        style="height: 40px"
-                        class="form-control text-right"
-                        ng-model="buffer.hijriDate"
-                        required="required"
-                        disable-validation-message="">
-                    <option value="true">تقويم هجري</option>
-                    <option value="false">تقويم ميلادي</option>
-                </select>
-            </div>
-
-            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6"
-                 ng-if="buffer.hijriDate==='true'">
-                <label for="date" class="control-label">
-                    <span> تاريخ الفاتورة</span>
-                </label>
-                <div dir="ltr" class="input-group">
-                    <input dir="rtl"
-                           id="date"
-                           type="text"
-                           class="form-control text-right is-calendarPicker"
-                           ng-model="billBuy.date"
-                           calendarType="ummalqura"
-                           language="en"
-                           dateFormat="yyyy/mm/dd"
-                           showOnFocus="false"
-                           required="required"
-                           disable-validation-message=""
-                           readonly="readonly"
-                           kdatepicker>
-                </div>
-            </div>
-
-            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6"
-                 ng-if="buffer.hijriDate==='false'">
-                <label for="date" class="control-label">
-                    <span> تاريخ الفاتورة</span>
-                </label>
-                <input id="G-date"
-                       class="form-control "
-                       type="date"
-                       name="input"
-                       ng-model="billBuy.date"
-                       placeholder="yyyy-MM-dd"
-                       required="required"
-                       disable-validation-message=""
-                       min="2015-01-01"
-                       max="2030-12-31"/>
-            </div>
-
-            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <label for="code" class="control-label">رقم الفاتورة</label>
-                <input id="code"
-                       type="number"
-                       required="required"
-                       disable-validation-message=""
-                       class="form-control text-right"
-                       placeholder="اذكر رقم الفاتورة"
-                       ng-model="billBuy.code">
-            </div>
-
-            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <label for="masterCreditAmount" class="control-label"> قيمة الفاتورة </label>
-                <div dir="ltr" class="input-group" id="masterCreditAmount">
-                    <span class="input-group-addon">ريال سعودي</span>
-                    <input type="number"
-                           min="1"
-                           class="form-control text-right "
-                           ng-model="billBuy.amount"
-                           placeholder="اذكر القيمة"
-                           required="required"
-                           disable-validation-message="">
-                </div>
-            </div>
-
             <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <label for="billBuyType" class="control-label">حساب الفاتورة</label>
                 <ui-select id="billBuyType"
@@ -134,6 +57,73 @@
                         <div ng-bind-html="billBuyType.name | highlight: $select.search"></div>
                     </ui-select-choices>
                 </ui-select>
+            </div>
+
+            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label for="date" class="control-label">تاريخ الفاتورة</label>
+                <div dir="ltr" class="input-group" id="date" ng-init="calendar1='G'">
+                    <span class="input-group-addon">
+                        <a href="" ng-click="calendar1==='G'?calendar1='H':calendar1='G'">
+                            <span ng-show="calendar1==='G'">ميلادي</span>
+                            <span ng-show="calendar1==='H'">هجري</span>
+                        </a>
+                    </span>
+                    <div style="position: relative">
+                        <input style="position: absolute" ng-show="calendar1==='H'"
+                               type="text"
+                               class="form-control is-calendarPicker animated-div"
+                               ng-model="billBuy.date"
+                               calendarType="ummalqura"
+                               language="ar"
+                               dateFormat="yyyy/mm/dd"
+                               showOnFocus="true"
+                               pickerClass="myPicker"
+                               required="required"
+                               disable-validation-message=""
+                               kdatepicker/>
+                        <input style="position: absolute" ng-show="calendar1==='G'"
+                               type="text"
+                               class="form-control is-calendarPicker animated-div"
+                               ng-model="billBuy.date"
+                               calendarType="gregorian"
+                               language="ar-EG"
+                               dateFormat="yyyy/mm/dd"
+                               showOnFocus="true"
+                               pickerClass="myPicker"
+                               required="required"
+                               disable-validation-message=""
+                               kdatepicker/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+
+                <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <label for="code" class="control-label">رقم الفاتورة</label>
+                    <input id="code"
+                           type="number"
+                           required="required"
+                           disable-validation-message=""
+                           class="form-control text-right"
+                           placeholder="اذكر رقم الفاتورة"
+                           ng-model="billBuy.code">
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <label for="masterCreditAmount" class="control-label"> قيمة الفاتورة </label>
+                    <div dir="ltr" class="input-group" id="masterCreditAmount">
+                        <span class="input-group-addon">ريال سعودي</span>
+                        <input type="number"
+                               min="1"
+                               class="form-control text-right "
+                               ng-model="billBuy.amount"
+                               placeholder="اذكر القيمة"
+                               required="required"
+                               disable-validation-message="">
+                    </div>
+                </div>
+
             </div>
 
             <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -184,7 +174,7 @@
             <button uib-tooltip="مسح الحقول"
                     tooltip-append-to-body="true"
                     type="reset"
-                    ng-click="form.$setPristine()"
+                    ng-click="form.$setPristine();billBuy={}"
                     class="mdl-button mdl-js-button mdl-js-ripple-effect col-xs-4 col-sm-4 col-md-4">
                 <img class="material-icons mdl-list__item-icon" ng-src="/ui/img/{{iconSet}}/delete.{{iconSetType}}" width="24" height="24">
             </button>

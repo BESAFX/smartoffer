@@ -229,19 +229,36 @@
                             </div>
 
                             <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <label for="identityStartDate" class="control-label"> تاريخ الإصدار </label>
-                                <div dir="ltr" class="input-group">
-                                    <input dir="rtl"
-                                           id="identityStartDate"
-                                           type="text"
-                                           class="form-control is-calendarPicker"
-                                           ng-model="account.student.contact.identityStartDate"
-                                           calendarType="ummalqura"
-                                           language="en"
-                                           dateFormat="yyyy/mm/dd"
-                                           showOnFocus="false"
-                                           readonly="readonly"
-                                           kdatepicker>
+                                <label for="identityStartDate" class="control-label">تاريخ الإصدار</label>
+                                <div dir="ltr" class="input-group" id="identityStartDate" ng-init="calendar1='G'">
+                                    <span class="input-group-addon">
+                                        <a href="" ng-click="calendar1==='G'?calendar1='H':calendar1='G'">
+                                            <span ng-show="calendar1==='G'">ميلادي</span>
+                                            <span ng-show="calendar1==='H'">هجري</span>
+                                        </a>
+                                    </span>
+                                    <div style="position: relative">
+                                        <input style="position: absolute" ng-show="calendar1==='H'"
+                                               type="text"
+                                               class="form-control is-calendarPicker animated-div"
+                                               ng-model="account.student.contact.identityStartDate"
+                                               calendarType="ummalqura"
+                                               language="ar"
+                                               dateFormat="yyyy/mm/dd"
+                                               showOnFocus="true"
+                                               pickerClass="myPicker"
+                                               kdatepicker/>
+                                        <input style="position: absolute" ng-show="calendar1==='G'"
+                                               type="text"
+                                               class="form-control is-calendarPicker animated-div"
+                                               ng-model="account.student.contact.identityStartDate"
+                                               calendarType="gregorian"
+                                               language="ar-EG"
+                                               dateFormat="yyyy/mm/dd"
+                                               showOnFocus="true"
+                                               pickerClass="myPicker"
+                                               kdatepicker/>
+                                    </div>
                                 </div>
                             </div>
 
@@ -267,18 +284,35 @@
 
                             <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <label for="birthDate" class="control-label">تاريخ الميلاد</label>
-                                <div dir="ltr" class="input-group">
-                                    <input dir="rtl"
-                                           id="birthDate"
-                                           type="text"
-                                           class="form-control is-calendarPicker"
-                                           ng-model="account.student.contact.birthDate"
-                                           calendarType="ummalqura"
-                                           language="en"
-                                           dateFormat="yyyy/mm/dd"
-                                           showOnFocus="false"
-                                           readonly="readonly"
-                                           kdatepicker>
+                                <div dir="ltr" class="input-group" id="birthDate" ng-init="calendar2='G'">
+                                    <span class="input-group-addon">
+                                        <a href="" ng-click="calendar2==='G'?calendar2='H':calendar2='G'">
+                                            <span ng-show="calendar2==='G'">ميلادي</span>
+                                            <span ng-show="calendar2==='H'">هجري</span>
+                                        </a>
+                                    </span>
+                                    <div style="position: relative">
+                                        <input style="position: absolute" ng-show="calendar2==='H'"
+                                               type="text"
+                                               class="form-control is-calendarPicker animated-div"
+                                               ng-model="account.student.contact.birthDate"
+                                               calendarType="ummalqura"
+                                               language="ar"
+                                               dateFormat="yyyy/mm/dd"
+                                               showOnFocus="true"
+                                               pickerClass="myPicker"
+                                               kdatepicker/>
+                                        <input style="position: absolute" ng-show="calendar2==='G'"
+                                               type="text"
+                                               class="form-control is-calendarPicker animated-div"
+                                               ng-model="account.student.contact.birthDate"
+                                               calendarType="gregorian"
+                                               language="ar-EG"
+                                               dateFormat="yyyy/mm/dd"
+                                               showOnFocus="true"
+                                               pickerClass="myPicker"
+                                               kdatepicker/>
+                                    </div>
                                 </div>
                             </div>
 

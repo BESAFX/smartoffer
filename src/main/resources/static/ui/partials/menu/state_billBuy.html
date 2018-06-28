@@ -24,7 +24,8 @@
                     <li class="mdl-menu__item mdl-list__item mdl-menu__item--full-bleed-divider"
                         ng-click="openFilterBillBuy()">
                         <span class="mdl-list__item-primary-content">
-                            <img class="material-icons mdl-list__item-icon" ng-src="/ui/img/{{iconSet}}/search.{{iconSetType}}" width="24" height="24">
+                            <img class="material-icons mdl-list__item-icon" ng-src="/ui/img/{{iconSet}}/search.{{iconSetType}}" width="24"
+                                 height="24">
                             <span>عرض بيانات الفواتير</span>
                         </span>
                     </li>
@@ -45,13 +46,15 @@
                                 type="button" ng-click="toggleList=1"
                                 ng-class="{'mdl-color--primary-dark':toggleList===1}">
                             <input type="radio" name="options"/>
-                            <img class="material-icons mdl-list__item-icon" ng-src="/ui/img/{{iconSet}}/reorder.{{iconSetType}}" width="24" height="24">
+                            <img class="material-icons mdl-list__item-icon" ng-src="/ui/img/{{iconSet}}/reorder.{{iconSetType}}" width="24"
+                                 height="24">
                         </button>
                         <button class="btn btn-default mdl-button mdl-js-button mdl-js-ripple-effect"
                                 type="button" ng-click="toggleList=2"
                                 ng-class="{'mdl-color--primary-dark':toggleList===2}">
                             <input type="radio" name="options"/>
-                            <img class="material-icons mdl-list__item-icon" ng-src="/ui/img/{{iconSet}}/module.{{iconSetType}}" width="24" height="24">
+                            <img class="material-icons mdl-list__item-icon" ng-src="/ui/img/{{iconSet}}/module.{{iconSetType}}" width="24"
+                                 height="24">
                         </button>
                     </div>
                 </div>
@@ -156,8 +159,9 @@
                         <tr>
 
                             <th class="fit no-print">
-                                <label id ="checkAllBillBuys" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-0">
-                                    <input type="checkbox" id="checkbox-0" class="mdl-checkbox__input" ng-model="billBuys.checkAll" ng-change="checkAllBillBuys()">
+                                <label id="checkAllBillBuys" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-0">
+                                    <input type="checkbox" id="checkbox-0" class="mdl-checkbox__input" ng-model="billBuys.checkAll"
+                                           ng-change="checkAllBillBuys()">
                                 </label>
                             </th>
 
@@ -205,7 +209,8 @@
                             context-menu="rowMenuBillBuy">
                             <td class="fit no-print">
                                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect check" for="checkbox-billBuy-{{billBuy.id}}">
-                                    <input type="checkbox" id="checkbox-billBuy-{{billBuy.id}}" class="mdl-checkbox__input" ng-model="billBuy.isSelected" ng-click="checkBillBuy()">
+                                    <input type="checkbox" id="checkbox-billBuy-{{billBuy.id}}" class="mdl-checkbox__input"
+                                           ng-model="billBuy.isSelected" ng-click="checkBillBuy()">
                                 </label>
                             </td>
                             <td>{{$index+1}}</td>
@@ -221,7 +226,7 @@
                             <td>[ {{billBuy.branch.code}} ] {{billBuy.branch.name}}</td>
                             <td>{{billBuy.lastPerson.contact.shortName}}</td>
                         </tr>
-                        <tr>
+                        <tr ng-show="filteredBillBuys.length > 0">
                             <td colspan="5">
 
                                 <h3 class="text-center box-success">
@@ -304,7 +309,8 @@
                                                 ng-if="contains(me.team.authorities, ['ROLE_BILL_BUY_CREATE'])"
                                                 ng-click="newBillBuy();"
                                                 class="mdl-button mdl-js-button mdl-js-ripple-effect col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                            <img class="material-icons mdl-list__item-icon" ng-src="/ui/img/{{iconSet}}/add.{{iconSetType}}" width="24" height="24">
+                                            <img class="material-icons mdl-list__item-icon" ng-src="/ui/img/{{iconSet}}/add.{{iconSetType}}"
+                                                 width="24" height="24">
                                         </button>
                                         <button uib-tooltip="حذف"
                                                 tooltip-append-to-body="true"
@@ -312,7 +318,8 @@
                                                 ng-if="contains(me.team.authorities, ['ROLE_BILL_BUY_DELETE'])"
                                                 ng-click="deleteBillBuy(billBuy)"
                                                 class="mdl-button mdl-js-button mdl-js-ripple-effect col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                            <img class="material-icons mdl-list__item-icon" ng-src="/ui/img/{{iconSet}}/delete.{{iconSetType}}" width="24" height="24">
+                                            <img class="material-icons mdl-list__item-icon" ng-src="/ui/img/{{iconSet}}/delete.{{iconSetType}}"
+                                                 width="24" height="24">
                                         </button>
                                     </div>
                                 </div>

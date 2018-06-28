@@ -12,6 +12,7 @@ gulp.task('css', function () {
         './css/creative.css',
 
         './css/animate.css',
+        './css/animation.css',
         './css/bootstrap.css',
         './css/fonts.css',
         './css/md-icons.css',
@@ -58,6 +59,10 @@ gulp.task('scripts', function () {
         './js/angular-touch.js',
         './js/angular-filter.js',
 
+        './kdate/kdate.module.js',
+        './kdate/kdate.filter.js',
+        './kdate/kdate.picker.js',
+
         './angular-spinner/spin.js',
         './angular-spinner/angular-spinner.js',
         './angular-spinner/angular-loading-spinner.js',
@@ -71,9 +76,6 @@ gulp.task('scripts', function () {
         './sockjs/sockjs.js',
         './stomp-websocket/lib/stomp.js',
         './ng-stomp/ng-stomp.js',
-        './kdate/kdate.module.js',
-        './kdate/kdate.filter.js',
-        './kdate/kdate.picker.js',
         './js/underscore.js',
         './js/lrDragNDrop.js',
         './js/contextMenu.js',
