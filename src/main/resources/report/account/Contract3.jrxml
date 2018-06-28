@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contract" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" isSummaryWithPageHeaderAndFooter="true" uuid="d667083a-5ee3-46f8-b604-36494df2d410">
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
@@ -17,10 +17,10 @@
 	<parameter name="ACCOUNT" class="com.besafx.app.entity.Account"/>
 	<parameter name="HIJRI_DATE" class="java.lang.Boolean"/>
 	<pageHeader>
-		<band height="80">
+		<band height="70">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<frame>
-				<reportElement x="0" y="0" width="575" height="80" uuid="f8905662-eeb9-439c-bfd7-ff33632b194b"/>
+				<reportElement x="0" y="0" width="575" height="70" uuid="f8905662-eeb9-439c-bfd7-ff33632b194b"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -64,7 +64,7 @@
 		</band>
 	</pageHeader>
 	<summary>
-		<band height="648">
+		<band height="681">
 			<frame>
 				<reportElement x="0" y="0" width="575" height="70" uuid="7d86612c-9bbd-4f7a-8c47-c6eb9566a03f"/>
 				<textField isBlankWhenNull="true">
@@ -83,7 +83,7 @@
 				</textField>
 			</frame>
 			<frame>
-				<reportElement x="1" y="552" width="575" height="20" uuid="25fd4afe-aeed-46bb-87ef-62a33c480356"/>
+				<reportElement x="0" y="611" width="575" height="20" uuid="25fd4afe-aeed-46bb-87ef-62a33c480356"/>
 				<staticText>
 					<reportElement mode="Opaque" x="0" y="0" width="575" height="20" forecolor="#FFFFFF" backcolor="#43A047" uuid="a21839f6-9957-4143-a3bb-92e7fe5fc4ff"/>
 					<box>
@@ -99,7 +99,7 @@
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement x="1" y="572" width="575" height="76" uuid="d3fe159c-147f-467e-b3e4-1f0733c4a139">
+				<reportElement x="1" y="633" width="575" height="48" uuid="d3fe159c-147f-467e-b3e4-1f0733c4a139">
 					<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
 					<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
 					<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
@@ -773,6 +773,69 @@
 						</staticText>
 					</frame>
 				</frame>
+			</frame>
+			<frame>
+				<reportElement x="1" y="570" width="575" height="20" uuid="3fa5e250-7a32-4882-a396-b31e500e34af"/>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="575" height="20" forecolor="#FFFFFF" backcolor="#B71C1C" uuid="965b24b5-f31c-4801-927d-805cc2c695a1"/>
+					<box>
+						<topPen lineWidth="1.0" lineColor="#43A047"/>
+						<leftPen lineWidth="1.0" lineColor="#43A047"/>
+						<bottomPen lineWidth="1.0" lineColor="#43A047"/>
+						<rightPen lineWidth="1.0" lineColor="#43A047"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="PT Bold Heading" size="8" isBold="false"/>
+					</textElement>
+					<text><![CDATA[الأجور المالية المقررة من وزارة التربية والتعليم]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="1" y="591" width="575" height="18" uuid="8520a280-d02e-443e-9e48-7ba9968c468d">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+				</reportElement>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="0" width="288" height="18" forecolor="#B71C1C" backcolor="#754C29" uuid="ad40efc4-2286-4441-a8ed-f026866a1b9b">
+						<property name="com.jaspersoft.layout.grid.x" value="6"/>
+						<property name="com.jaspersoft.layout.grid.y" value="1"/>
+						<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+						<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+						<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+						<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+						<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="PT Bold Heading" size="8" isBold="false"/>
+					</textElement>
+					<text><![CDATA[100 ريال سعودي]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="288" y="0" width="287" height="18" forecolor="#B71C1C" backcolor="#754C29" uuid="7969c234-9e62-4f0f-a0a8-b6ff4592feca">
+						<property name="com.jaspersoft.layout.grid.x" value="6"/>
+						<property name="com.jaspersoft.layout.grid.y" value="1"/>
+						<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+						<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+						<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+						<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
+						<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="PT Bold Heading" size="8" isBold="false"/>
+					</textElement>
+					<text><![CDATA[التصديق على أي شهادة]]></text>
+				</staticText>
 			</frame>
 		</band>
 	</summary>
