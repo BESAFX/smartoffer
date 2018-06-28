@@ -64,7 +64,7 @@
 		</band>
 	</pageHeader>
 	<summary>
-		<band height="681">
+		<band height="650">
 			<frame>
 				<reportElement x="0" y="0" width="575" height="70" uuid="7d86612c-9bbd-4f7a-8c47-c6eb9566a03f"/>
 				<textField isBlankWhenNull="true">
@@ -83,7 +83,7 @@
 				</textField>
 			</frame>
 			<frame>
-				<reportElement x="0" y="611" width="575" height="20" uuid="25fd4afe-aeed-46bb-87ef-62a33c480356"/>
+				<reportElement x="0" y="580" width="575" height="20" uuid="25fd4afe-aeed-46bb-87ef-62a33c480356"/>
 				<staticText>
 					<reportElement mode="Opaque" x="0" y="0" width="575" height="20" forecolor="#FFFFFF" backcolor="#43A047" uuid="a21839f6-9957-4143-a3bb-92e7fe5fc4ff"/>
 					<box>
@@ -99,7 +99,7 @@
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement x="1" y="633" width="575" height="48" uuid="d3fe159c-147f-467e-b3e4-1f0733c4a139">
+				<reportElement x="1" y="602" width="575" height="48" uuid="d3fe159c-147f-467e-b3e4-1f0733c4a139">
 					<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
 					<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
 					<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
@@ -189,7 +189,7 @@
 					<text><![CDATA[تعليمات وشروط العقد]]></text>
 				</staticText>
 				<frame>
-					<reportElement x="0" y="20" width="575" height="388" uuid="6fbbc3a8-2442-45f1-ad97-be3f16d5ff53">
+					<reportElement x="0" y="20" width="575" height="410" uuid="6fbbc3a8-2442-45f1-ad97-be3f16d5ff53">
 						<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					</reportElement>
 					<box>
@@ -200,7 +200,7 @@
 						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#754C29"/>
 					</box>
 					<textField>
-						<reportElement x="0" y="0" width="575" height="28" uuid="42ca635c-f7f1-4425-a38e-f4cbad3524f0">
+						<reportElement x="0" y="0" width="575" height="30" uuid="42ca635c-f7f1-4425-a38e-f4cbad3524f0">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="3">
@@ -216,7 +216,7 @@
 						<textFieldExpression><![CDATA["<li>" + "يلتزم الطرف الثاني فى حال رغبته بالفصل من الدورة أن يفوم بإشعار الطرف الأول خطياً وإلا يعتبر هذا العقد ملزماً له بسداد كافة رسوم الدورة فوراً عند المطالبة حتى لو لم يداوم ويحق للطرف الأول مطالبته عبر القنوات الرسمية بذلك." + "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="28" width="575" height="20" uuid="4e3c1243-bdc7-4d3b-93dd-93a751230a09">
+						<reportElement x="0" y="30" width="575" height="20" uuid="4e3c1243-bdc7-4d3b-93dd-93a751230a09">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -228,7 +228,7 @@
 						<textFieldExpression><![CDATA["<li>" + "الاختبار النهائي لدورة " +  "<style isBold=\"true\">" + $P{ACCOUNT}.getCourse().getMaster().getName() +  "</style>" + " رسمي ومعتمد ومصدق من وزارة التربية والتعليم" + "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="48" width="575" height="20" uuid="fe1c4102-28b0-4fe6-b39e-3fbf198d5ad4">
+						<reportElement x="0" y="50" width="575" height="20" uuid="fe1c4102-28b0-4fe6-b39e-3fbf198d5ad4">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -240,7 +240,7 @@
 						<textFieldExpression><![CDATA["<li>" + "يجب على الدارس الحضور يوميا بموعد المحاضرات المخصصة له سواء نظرية أو عملية وعدم التغيب بدون عذر وفي حالة رغبة الدارس بالغياب أو التأجيل عليه تعبئة النموذج المعد لذلك بقسم التسجيل. "+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="68" width="575" height="20" uuid="6a366f62-9458-41e1-bfa0-7aaefd6cbbca">
+						<reportElement x="0" y="70" width="575" height="20" uuid="6a366f62-9458-41e1-bfa0-7aaefd6cbbca">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -252,7 +252,7 @@
 						<textFieldExpression><![CDATA["<li>" + "في حالة تغيب الطالب 6 أيام فى الشهر متواصلة او متفرقة يكون الشهر لاغياً ويتم تأخيره شهر على حسابه الخاص. "+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="88" width="575" height="20" uuid="127dc1fd-b39b-42e6-adaa-2e2dc67dab03">
+						<reportElement x="0" y="90" width="575" height="20" uuid="127dc1fd-b39b-42e6-adaa-2e2dc67dab03">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -264,7 +264,7 @@
 						<textFieldExpression><![CDATA["<li>" + "يتم تسليم الدارس كشف بنتائجه في نهاية كل شهر وفى حال رسوب الدارس في أي مادة عليه إعادتها فى الربع التالي على حسابه الخاص. "+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="108" width="575" height="20" uuid="33ccd567-9bbe-48b0-99ff-d2f055b3fae9">
+						<reportElement x="0" y="110" width="575" height="20" uuid="33ccd567-9bbe-48b0-99ff-d2f055b3fae9">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -276,7 +276,7 @@
 						<textFieldExpression><![CDATA["<li>" + "لن يتم رصد درجة لأي دارس إلا بعد إجتيازه الاختبار المقرر لهذة المادة. "+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="128" width="575" height="20" uuid="237c0fe8-abd3-414b-b001-6f9550390965">
+						<reportElement x="0" y="130" width="575" height="20" uuid="237c0fe8-abd3-414b-b001-6f9550390965">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -288,7 +288,7 @@
 						<textFieldExpression><![CDATA["<li>" + "في حال تأخر الدارس عن الاختبار أو غيابه بدون عذر رسمي يتم تغريمه مبلغ 1000 ريال وإعادة الاختبار. "+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="148" width="575" height="20" uuid="4364c18e-247b-4715-834e-70e030fe8f3a">
+						<reportElement x="0" y="150" width="575" height="20" uuid="4364c18e-247b-4715-834e-70e030fe8f3a">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -300,7 +300,7 @@
 						<textFieldExpression><![CDATA["<li>" + "يجب على الدارس الحضور يوميا حسب عدد الساعات المقررة لكل ربع من الأحد إلى الخميس ويوم السبت يعتبر مفتوح لتعويض المحاضرات النظرية التي تغيب عنها الطالب إن وجدت. "+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="168" width="575" height="20" uuid="e6a170d6-145b-4d18-9151-829947d1727a">
+						<reportElement x="0" y="170" width="575" height="20" uuid="e6a170d6-145b-4d18-9151-829947d1727a">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -312,7 +312,7 @@
 						<textFieldExpression><![CDATA["<li>" + "يجب على كل متدرب قراءة لوحة الإعلانات عند مدخل المعهد لمعرفة مواعيد المحاضرات ومتابعة الموقع الإلكتروني للمعهد لمشاهدة كل جديد يطرأ على الدورات. "+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="188" width="575" height="20" uuid="c8da9d40-2adc-4ad4-a835-9ccbfa9086c2">
+						<reportElement x="0" y="190" width="575" height="20" uuid="c8da9d40-2adc-4ad4-a835-9ccbfa9086c2">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -324,7 +324,7 @@
 						<textFieldExpression><![CDATA["<li>" + "يجب على كل متدرب دفع الرسوم الشهرية فى بداية كل شهر هجري ولا يحق للمتدرب تأخير إي قسط إلا بأخذ الموافقة من المدير المالي. "+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="208" width="575" height="20" uuid="2bc47575-66da-4ddf-a14d-b0fdb5779a0b">
+						<reportElement x="0" y="210" width="575" height="20" uuid="2bc47575-66da-4ddf-a14d-b0fdb5779a0b">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -336,7 +336,7 @@
 						<textFieldExpression><![CDATA["<li>" + "يمنع التدخين منعا باتا بقاعات واستراحات المعهد، ويمنع استخدام الجوال منعا باتا فى القاعات العملية والنظرية للمعهد. "+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="228" width="575" height="20" uuid="fc788b7d-b8d6-48be-bf5f-bc6b636b943d">
+						<reportElement x="0" y="230" width="575" height="20" uuid="fc788b7d-b8d6-48be-bf5f-bc6b636b943d">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -348,7 +348,7 @@
 						<textFieldExpression><![CDATA["<li>" + "الحفاظ على أجهزة وأثاث المعهد. "+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="248" width="575" height="20" uuid="fa3ea8bf-6366-4b52-b41f-cb6028e015b7">
+						<reportElement x="0" y="250" width="575" height="20" uuid="fa3ea8bf-6366-4b52-b41f-cb6028e015b7">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -360,7 +360,7 @@
 						<textFieldExpression><![CDATA["<li>" + "الرسوم المدفوعة للمعهد لا تسترد مهما كان السبب أو العذر ولا يحق للمتدرب المطالبة بها بعد ذلك فى حالة عدم دوامه. "+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="268" width="575" height="20" uuid="1c054625-d295-4a0a-bb7c-9238443c4453">
+						<reportElement x="0" y="270" width="575" height="20" uuid="1c054625-d295-4a0a-bb7c-9238443c4453">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -372,7 +372,7 @@
 						<textFieldExpression><![CDATA["<li>" + "في حالة وجود إي ملاحظة يتم الاتصال مباشرة على جوال رقم : 0504975344 هاتف : 6620392 "+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="288" width="575" height="20" uuid="15c697a4-3288-4828-a76b-e1a0d00b34ee">
+						<reportElement x="0" y="290" width="575" height="20" uuid="15c697a4-3288-4828-a76b-e1a0d00b34ee">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -384,7 +384,7 @@
 						<textFieldExpression><![CDATA["<li>" + "على كل متدرب الإلتزام بالزي السعودي الرسمي كاملا ويمنع منعا باتا من الحضور بالملابس الرياضية أو ثوب النوم أو أى ملابس أخرى."+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="308" width="575" height="20" uuid="3bc2646a-a07a-49f6-9eac-abc8ae0ae04f">
+						<reportElement x="0" y="310" width="575" height="20" uuid="3bc2646a-a07a-49f6-9eac-abc8ae0ae04f">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -396,7 +396,7 @@
 						<textFieldExpression><![CDATA["<li>" + "فى حال شعور المتدرب بعدم استفادته من الدورة لإي سبب عليه مراجعة الإدارة أو تعبئة النموذج المعد لهذا الغرض وتسليمه بظرف مغلق بقسم القبول والتسجيل أو قسم المحاسبة خلال شهر من بداية الدورة."+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="328" width="575" height="20" uuid="dabe3347-0a9f-4514-9645-84fe55e465cd">
+						<reportElement x="0" y="330" width="575" height="20" uuid="dabe3347-0a9f-4514-9645-84fe55e465cd">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -408,7 +408,7 @@
 						<textFieldExpression><![CDATA["<li>" + "يجب على كل متدرب إبراز البطاقة عند دخول المعهد كما يجب إحضار الكتب والدفاتر الخاصة بالدورة فى المحاضرات سواء كانت نظرية أو عملية."+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="348" width="575" height="20" uuid="59b08099-dcbc-4d43-bb77-4fe07dc6aff9">
+						<reportElement x="0" y="350" width="575" height="20" uuid="59b08099-dcbc-4d43-bb77-4fe07dc6aff9">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -420,7 +420,7 @@
 						<textFieldExpression><![CDATA["<li>" + "يجب على كل متدرب التقيد بالخطة الدراسية المدرجة والإطلاع عليها والمتابعة مع المدرب."+ "</li>"]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="0" y="368" width="575" height="20" uuid="d8af220d-c51e-4ced-8577-e07f0b46bdd9">
+						<reportElement x="0" y="370" width="575" height="20" uuid="d8af220d-c51e-4ced-8577-e07f0b46bdd9">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
 						<box padding="5" leftPadding="5">
@@ -430,6 +430,18 @@
 							<font fontName="Arial" size="8"/>
 						</textElement>
 						<textFieldExpression><![CDATA["<li>" + "يجب على كل متدرب فى نهاية كل شهر إحظار الجدول الخاص بالشهر الجديد من قسم القبول والتسجيل أو من خلال الموقع الإلكتروني للمعهد."+ "</li>"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="390" width="575" height="20" uuid="deeee692-c250-4cb1-a875-51ddb6bd11b8">
+							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						</reportElement>
+						<box padding="5" leftPadding="5">
+							<pen lineColor="#754C29"/>
+						</box>
+						<textElement textAlignment="Right" markup="styled">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["<li>" + "المقابل المالي للشهادة مبلغ 100 ريال سعودي فقط لا غير ."+ "</li>"]]></textFieldExpression>
 					</textField>
 				</frame>
 			</frame>
@@ -773,69 +785,6 @@
 						</staticText>
 					</frame>
 				</frame>
-			</frame>
-			<frame>
-				<reportElement x="1" y="570" width="575" height="20" uuid="3fa5e250-7a32-4882-a396-b31e500e34af"/>
-				<staticText>
-					<reportElement mode="Opaque" x="0" y="0" width="575" height="20" forecolor="#FFFFFF" backcolor="#B71C1C" uuid="965b24b5-f31c-4801-927d-805cc2c695a1"/>
-					<box>
-						<topPen lineWidth="1.0" lineColor="#43A047"/>
-						<leftPen lineWidth="1.0" lineColor="#43A047"/>
-						<bottomPen lineWidth="1.0" lineColor="#43A047"/>
-						<rightPen lineWidth="1.0" lineColor="#43A047"/>
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="PT Bold Heading" size="8" isBold="false"/>
-					</textElement>
-					<text><![CDATA[الأجور المالية المقررة من وزارة التربية والتعليم]]></text>
-				</staticText>
-			</frame>
-			<frame>
-				<reportElement x="1" y="591" width="575" height="18" uuid="8520a280-d02e-443e-9e48-7ba9968c468d">
-					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
-				</reportElement>
-				<staticText>
-					<reportElement mode="Transparent" x="0" y="0" width="288" height="18" forecolor="#B71C1C" backcolor="#754C29" uuid="ad40efc4-2286-4441-a8ed-f026866a1b9b">
-						<property name="com.jaspersoft.layout.grid.x" value="6"/>
-						<property name="com.jaspersoft.layout.grid.y" value="1"/>
-						<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
-						<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
-						<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
-						<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
-						<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
-					</reportElement>
-					<box>
-						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
-						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
-						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
-						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="PT Bold Heading" size="8" isBold="false"/>
-					</textElement>
-					<text><![CDATA[100 ريال سعودي]]></text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Transparent" x="288" y="0" width="287" height="18" forecolor="#B71C1C" backcolor="#754C29" uuid="7969c234-9e62-4f0f-a0a8-b6ff4592feca">
-						<property name="com.jaspersoft.layout.grid.x" value="6"/>
-						<property name="com.jaspersoft.layout.grid.y" value="1"/>
-						<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
-						<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
-						<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
-						<property name="com.jaspersoft.layout.grid.colspan" value="1"/>
-						<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
-					</reportElement>
-					<box>
-						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
-						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
-						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
-						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#B71C1C"/>
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="PT Bold Heading" size="8" isBold="false"/>
-					</textElement>
-					<text><![CDATA[التصديق على أي شهادة]]></text>
-				</staticText>
 			</frame>
 		</band>
 	</summary>
