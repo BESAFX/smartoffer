@@ -154,7 +154,7 @@
             <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <label>المبلغ قبل الضريبة</label>
                 <div dir="ltr" class="input-group">
-                    <span class="input-group-addon">ريال</span>
+                    <span class="input-group-addon">ريال سعودي</span>
                     <input dir="rtl"
                            type="number"
                            min="0"
@@ -162,6 +162,7 @@
                            class="form-control text-right "
                            required="required"
                            disable-validation-message=""
+                           ng-change="payment.amountNumberAfterVat=payment.amountNumber*0.05+payment.amountNumber"
                            ng-model="payment.amountNumber">
                 </div>
             </div>
@@ -169,7 +170,7 @@
             <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <label>المبلغ بعد الضريبة</label>
                 <div dir="ltr" class="input-group">
-                    <span class="input-group-addon">ريال</span>
+                    <span class="input-group-addon">ريال سعودي</span>
                     <input dir="rtl"
                            type="number"
                            min="0"
@@ -177,7 +178,8 @@
                            class="form-control text-right "
                            required="required"
                            disable-validation-message=""
-                           ng-model="payment.amountNumber">
+                           ng-change="payment.amountNumber=payment.amountNumberAfterVat/1.05"
+                           ng-model="payment.amountNumberAfterVat">
                 </div>
             </div>
 
