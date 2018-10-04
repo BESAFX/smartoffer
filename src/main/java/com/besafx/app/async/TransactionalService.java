@@ -6,8 +6,8 @@ import com.google.common.collect.Lists;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
@@ -143,6 +143,16 @@ public class TransactionalService {
         } catch (Exception ex) {
             ex.printStackTrace();
             return -1.0;
+        }
+    }
+
+    @Transactional
+    public Integer getNextAccountCode(Course course){
+        Account topAccount = accountService.findTopByCourseOrderByCodeDesc(course);
+        if (topAccount == null) {
+            return 1;
+        } else {
+            return topAccount.getCode() + 1;
         }
     }
 }

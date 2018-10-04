@@ -69,12 +69,10 @@ public class BillBuyRest {
     @RequestMapping(value = "update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @PreAuthorize("hasRole('ROLE_BILL_BUY_UPDATE')")
-    public String update(@RequestBody BillBuy billBuy, Principal principal) {
-        Person person = personService.findByEmail(principal.getName());
+    public String update(@RequestBody BillBuy billBuy) {
         BillBuy object = billBuyService.findOne(billBuy.getId());
         if (object != null) {
             billBuy.setLastUpdate(new Date());
-            billBuy.setLastPerson(person);
             billBuy = billBuyService.save(billBuy);
             StringBuilder builder = new StringBuilder();
             builder.append("تم تعديل فاتورة شراء بقيمة: ");

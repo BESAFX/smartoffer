@@ -1,10 +1,8 @@
 package com.besafx.app.rest;
 
-import com.besafx.app.config.CustomException;
 import com.besafx.app.entity.Account;
 import com.besafx.app.entity.Payment;
 import com.besafx.app.entity.Person;
-import com.besafx.app.entity.wrapper.PaymentWrapper;
 import com.besafx.app.search.PaymentSearch;
 import com.besafx.app.service.AccountService;
 import com.besafx.app.service.PaymentService;
@@ -17,7 +15,6 @@ import com.github.bohnman.squiggly.Squiggly;
 import com.github.bohnman.squiggly.util.SquigglyUtils;
 import com.google.common.collect.Lists;
 import org.joda.time.DateTime;
-import org.joda.time.LocalDateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,19 +58,6 @@ public class PaymentRest {
     @PreAuthorize("hasRole('ROLE_PAYMENT_CREATE')")
     public String create(@RequestBody Payment payment, Principal principal) {
         payment.setAccount(accountService.findOne(payment.getAccount().getId()));
-        DateTime dateTime = new DateTime();
-        if (dateTime.getHourOfDay() > 22 && dateTime.getHourOfDay() < 8) {
-            throw new CustomException("عفواً، تم الإغلاق");
-        }
-//        if (paymentService.findByCodeAndAccountCourseMasterBranch(payment.getCode(), payment.getAccount().getCourse().getMaster().getBranch()) != null) {
-//            throw new CustomException("عفواً، هذا السند مدخل سابقاً");
-//        }
-//        Payment topPayment = paymentService.findTopByAccountCourseMasterBranchOrderByCodeDesc(payment.getAccount().getCourse().getMaster().getBranch());
-//        if (topPayment == null) {
-//            payment.setCode(Long.valueOf(1));
-//        } else {
-//            payment.setCode(topPayment.getCode() + 1);
-//        }
         Person person = personService.findByEmail(principal.getName());
         payment.setDate(new DateTime().toDate());
         payment.setLastPerson(person);

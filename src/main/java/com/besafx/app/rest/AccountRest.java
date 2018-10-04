@@ -1,5 +1,6 @@
 package com.besafx.app.rest;
 
+import com.besafx.app.async.TransactionalService;
 import com.besafx.app.config.SendSMS;
 import com.besafx.app.entity.*;
 import com.besafx.app.search.AccountSearch;
@@ -13,13 +14,13 @@ import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.security.Principal;
 import java.util.Date;
 import java.util.List;
@@ -75,7 +76,7 @@ public class AccountRest {
             "name," +
             "remainPrice";
 
-    private final static Logger log = LoggerFactory.getLogger(AccountRest.class);
+    private final static Logger LOG = LoggerFactory.getLogger(AccountRest.class);
 
     @Autowired
     private PersonService personService;
@@ -117,19 +118,18 @@ public class AccountRest {
     private SendSMS sendSMS;
 
     @Autowired
+    private TransactionalService transactionalService;
+
+    @Autowired
     private NotificationService notificationService;
 
-    @RequestMapping(value = "create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "create",  consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @PreAuthorize("hasRole('ROLE_ACCOUNT_CREATE')")
+    @Transactional
     public String create(@RequestBody Account account, Principal principal) {
         Person person = personService.findByEmail(principal.getName());
-        Account topAccount = accountService.findTopByCourseOrderByCodeDesc(account.getCourse());
-        if (topAccount == null) {
-            account.setCode(1);
-        } else {
-            account.setCode(topAccount.getCode() + 1);
-        }
+        account.setCode(transactionalService.getNextAccountCode(account.getCourse()));
         account.setRegisterDate(new Date());
         account.setLastUpdate(new Date());
         account.setLastPerson(person);
@@ -140,7 +140,8 @@ public class AccountRest {
         return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), FILTER_TABLE), account);
     }
 
-    @RequestMapping(value = "update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType
+            .APPLICATION_JSON_VALUE)
     @ResponseBody
     @PreAuthorize("hasRole('ROLE_ACCOUNT_UPDATE')")
     public String update(@RequestBody Account account, Principal principal) {
@@ -171,7 +172,8 @@ public class AccountRest {
             accountNoteService.delete(account.getAccountNotes());
             paymentService.delete(account.getPayments());
             accountService.delete(id);
-            notificationService.notifyAll(Notification.builder().message("تم حذف الاشتراك وكل ما يتعلق به من سندات وحسابات بنجاح").type("success").build());
+            notificationService.notifyAll(Notification.builder().message("تم حذف الاشتراك وكل ما يتعلق به من سندات وحسابات بنجاح").type("success")
+                                                      .build());
         }
     }
 
@@ -191,7 +193,8 @@ public class AccountRest {
             accountConditionService.delete(accountConditions);
 
             accountService.delete(accounts);
-            notificationService.notifyAll(Notification.builder().message("تم حذف الطلاب وكل ما يتعلق بهم من سندات وحسابات بنجاح").type("success").build());
+            notificationService.notifyAll(Notification.builder().message("تم حذف الطلاب وكل ما يتعلق بهم من سندات وحسابات بنجاح").type("success")
+                                                      .build());
         }
     }
 
@@ -229,7 +232,8 @@ public class AccountRest {
     @RequestMapping(value = "findByStudent/{studentId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String findByStudent(@PathVariable Long studentId) {
-        return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), FILTER_TABLE), accountService.findByStudent(studentService.findOne(studentId)));
+        return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), FILTER_TABLE), accountService.findByStudent(studentService.findOne
+                (studentId)));
     }
 
     @RequestMapping(value = "findByCourse/{courseId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -241,57 +245,58 @@ public class AccountRest {
     @RequestMapping(value = "findByMaster/{masterId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String findByMaster(@PathVariable Long masterId) {
-        return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), FILTER_TABLE), accountService.findByCourseMaster(masterService.findOne(masterId)));
+        return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), FILTER_TABLE), accountService.findByCourseMaster(masterService.findOne
+                (masterId)));
     }
 
     @RequestMapping(value = "findByBranch/{branchId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String findByBranch(@PathVariable Long branchId) {
         return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), FILTER_ACCOUNT_COMBO),
-                accountService.findByCourseMasterBranch(branchService.findOne(branchId)));
+                                       accountService.findByCourseMasterBranch(branchService.findOne(branchId)));
     }
 
     @RequestMapping(value = "findByBranchWithKey/{branchId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String findByBranchWithKey(@PathVariable Long branchId) {
         return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), FILTER_ACCOUNT_KEY),
-                accountService.findByCourseMasterBranchId(branchId, new PageRequest(0, 10)));
+                                       accountService.findByCourseMasterBranchId(branchId, new PageRequest(0, 10)));
     }
 
     @RequestMapping(value = "findByBranches", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String findByBranches(@RequestParam List<Long> branchIds) {
         return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), FILTER_ACCOUNT_COMBO),
-                accountService.findByCourseMasterBranchIdIn(branchIds));
+                                       accountService.findByCourseMasterBranchIdIn(branchIds));
     }
 
     @RequestMapping(value = "fetchTableData", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String fetchTableData(Principal principal) {
         return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), FILTER_TABLE),
-                personService.findByEmail(principal.getName())
-                        .getBranch().getMasters().stream()
-                        .flatMap(master -> master.getCourses().stream())
-                        .collect(Collectors.toList())
-                        .stream()
-                        .flatMap(course -> course.getAccounts().stream())
-                        .collect(Collectors.toList()));
+                                       personService.findByEmail(principal.getName())
+                                                    .getBranch().getMasters().stream()
+                                                    .flatMap(master -> master.getCourses().stream())
+                                                    .collect(Collectors.toList())
+                                                    .stream()
+                                                    .flatMap(course -> course.getAccounts().stream())
+                                                    .collect(Collectors.toList()));
     }
 
     @RequestMapping(value = "fetchTableDataAccountComboBox", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String fetchTableDataAccountComboBox(Principal principal) {
         return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), FILTER_ACCOUNT_COMBO),
-                personService.findByEmail(principal.getName())
-                        .getBranches().stream()
-                        .flatMap(branch -> branch.getMasters().stream())
-                        .collect(Collectors.toList())
-                        .stream()
-                        .flatMap(master -> master.getCourses().stream())
-                        .collect(Collectors.toList())
-                        .stream()
-                        .flatMap(course -> course.getAccounts().stream())
-                        .collect(Collectors.toList()));
+                                       personService.findByEmail(principal.getName())
+                                                    .getBranches().stream()
+                                                    .flatMap(branch -> branch.getMasters().stream())
+                                                    .collect(Collectors.toList())
+                                                    .stream()
+                                                    .flatMap(master -> master.getCourses().stream())
+                                                    .collect(Collectors.toList())
+                                                    .stream()
+                                                    .flatMap(course -> course.getAccounts().stream())
+                                                    .collect(Collectors.toList()));
     }
 
     @RequestMapping(value = "filter", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -317,27 +322,27 @@ public class AccountRest {
             @RequestParam(value = "searchType") final String searchType,
             Pageable pageable) {
         return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(),
-                "**,".concat("content[").concat(FILTER_TABLE).concat("]")),
-                accountSearch.search(
-                        firstName,
-                        secondName,
-                        thirdName,
-                        forthName,
-                        fullName,
-                        dateFrom,
-                        dateTo,
-                        studentIdentityNumber,
-                        studentMobile,
-                        coursePriceFrom,
-                        coursePriceTo,
-                        courseIds,
-                        masterIds,
-                        branchIds,
-                        courseCodes,
-                        masterCodes,
-                        branchCodes,
-                        searchType,
-                        pageable));
+                                                     "**,".concat("content[").concat(FILTER_TABLE).concat("]")),
+                                       accountSearch.search(
+                                               firstName,
+                                               secondName,
+                                               thirdName,
+                                               forthName,
+                                               fullName,
+                                               dateFrom,
+                                               dateTo,
+                                               studentIdentityNumber,
+                                               studentMobile,
+                                               coursePriceFrom,
+                                               coursePriceTo,
+                                               courseIds,
+                                               masterIds,
+                                               branchIds,
+                                               courseCodes,
+                                               masterCodes,
+                                               branchCodes,
+                                               searchType,
+                                               pageable));
     }
 
     @RequestMapping(value = "filterWithInfo", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -363,26 +368,26 @@ public class AccountRest {
             @RequestParam(value = "searchType") final String searchType,
             Pageable pageable) {
         return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), "**,".concat("content[").concat(FILTER_ACCOUNT_COMBO).concat("]")),
-                accountSearch.search(
-                        firstName,
-                        secondName,
-                        thirdName,
-                        forthName,
-                        fullName,
-                        dateFrom,
-                        dateTo,
-                        studentIdentityNumber,
-                        studentMobile,
-                        coursePriceFrom,
-                        coursePriceTo,
-                        courseIds,
-                        masterIds,
-                        branchIds,
-                        courseCodes,
-                        masterCodes,
-                        branchCodes,
-                        searchType,
-                        pageable));
+                                       accountSearch.search(
+                                               firstName,
+                                               secondName,
+                                               thirdName,
+                                               forthName,
+                                               fullName,
+                                               dateFrom,
+                                               dateTo,
+                                               studentIdentityNumber,
+                                               studentMobile,
+                                               coursePriceFrom,
+                                               coursePriceTo,
+                                               courseIds,
+                                               masterIds,
+                                               branchIds,
+                                               courseCodes,
+                                               masterCodes,
+                                               branchCodes,
+                                               searchType,
+                                               pageable));
     }
 
     @RequestMapping(value = "filterWithAttaches", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -408,26 +413,26 @@ public class AccountRest {
             @RequestParam(value = "searchType") final String searchType,
             Pageable pageable) {
         return SquigglyUtils.stringify(Squiggly.init(new ObjectMapper(), "**,".concat("content[").concat(FILTER_ACCOUNT_ATTACH).concat("]")),
-                accountSearch.search(
-                        firstName,
-                        secondName,
-                        thirdName,
-                        forthName,
-                        fullName,
-                        dateFrom,
-                        dateTo,
-                        studentIdentityNumber,
-                        studentMobile,
-                        coursePriceFrom,
-                        coursePriceTo,
-                        courseIds,
-                        masterIds,
-                        branchIds,
-                        courseCodes,
-                        masterCodes,
-                        branchCodes,
-                        searchType,
-                        pageable));
+                                       accountSearch.search(
+                                               firstName,
+                                               secondName,
+                                               thirdName,
+                                               forthName,
+                                               fullName,
+                                               dateFrom,
+                                               dateTo,
+                                               studentIdentityNumber,
+                                               studentMobile,
+                                               coursePriceFrom,
+                                               coursePriceTo,
+                                               courseIds,
+                                               masterIds,
+                                               branchIds,
+                                               courseCodes,
+                                               masterCodes,
+                                               branchCodes,
+                                               searchType,
+                                               pageable));
     }
 
 

@@ -36,7 +36,7 @@ app.controller('accountCreateCtrl', ['AccountService', 'BranchService', 'ModalPr
 
         $scope.submit = function () {
             AccountService.create($scope.account).then(function (data) {
-                $uibModalInstance.close(data);
+                $scope.clear();
                 $rootScope.showConfirmNotify("السندات", "هل تود تسديد دفعة من الرسوم ؟", "notification", "fa-info", function () {
                     $scope.newPayment(data);
                 });

@@ -65,7 +65,14 @@
             </div>
 
             <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <label class="control-label">الطالب</label>
+                <label class="control-label">
+                    <span>الطالب</span>
+                    <a href=""
+                       ng-if="contains(me.team.authorities, ['ROLE_ACCOUNT_CREATE'])"
+                       ng-click="newAccount()">
+                        <span>طالب جديد...</span>
+                    </a>
+                </label>
                 <ui-select id="account"
                            ng-model="payment.account"
                            required="required"
@@ -152,34 +159,16 @@
             </div>
 
             <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <label>المبلغ قبل الضريبة</label>
+                <label>المبلغ بدون الضريبة</label>
                 <div dir="ltr" class="input-group">
                     <span class="input-group-addon">ريال سعودي</span>
                     <input dir="rtl"
                            type="number"
                            min="0"
-                           ng-max="(payment.type=='ايرادات اساسية' && payment.account.remainPrice)"
                            class="form-control text-right "
                            required="required"
                            disable-validation-message=""
-                           ng-change="payment.amountNumberAfterVat=payment.amountNumber*0.05+payment.amountNumber"
                            ng-model="payment.amountNumber">
-                </div>
-            </div>
-
-            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <label>المبلغ بعد الضريبة</label>
-                <div dir="ltr" class="input-group">
-                    <span class="input-group-addon">ريال سعودي</span>
-                    <input dir="rtl"
-                           type="number"
-                           min="0"
-                           ng-max="(payment.type=='ايرادات اساسية' && payment.account.remainPrice)"
-                           class="form-control text-right "
-                           required="required"
-                           disable-validation-message=""
-                           ng-change="payment.amountNumber=payment.amountNumberAfterVat/1.05"
-                           ng-model="payment.amountNumberAfterVat">
                 </div>
             </div>
 
